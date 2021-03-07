@@ -1,7 +1,10 @@
 <script>
+import { mapActions } from 'vuex';
+
 export default {
   name: 'AppToolbar',
   data: () => ({
+    searchParameter: '',
     links: [
       'Dashboard',
       'Messages',
@@ -9,6 +12,16 @@ export default {
       'Updates',
     ],
   }),
+  methods: {
+    ...mapActions('app', ['searchGithubUser']),
+    redirectToSearchResults() {
+      const { path } = this.$router.currentRoute;
+
+      if (path !== '/searchResults') {
+        this.$router.push('/searchResults');
+      }
+    },
+  },
 };
 </script>
 
@@ -37,11 +50,13 @@ export default {
 
       <v-responsive max-width="260">
         <v-text-field
+          v-model="searchParameter"
           dense
           flat
           hide-details
           rounded
           solo-inverted
+          @keyup.enter="redirectToSearchResults"
         />
       </v-responsive>
     </v-container>
