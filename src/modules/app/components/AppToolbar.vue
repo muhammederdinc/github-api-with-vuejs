@@ -13,15 +13,15 @@ export default {
     ],
   }),
   computed: {
-    ...mapState('searchResults', ['searchType']),
+    ...mapState('search', ['searchType']),
   },
   methods: {
-    ...mapActions('searchResults', ['searchOnGithub']),
+    ...mapActions('search', ['searchOnGithub']),
     searchAndRedirect() {
       const { path } = this.$router.currentRoute;
 
-      if (path !== '/searchResults') {
-        this.$router.push('/searchResults');
+      if (path !== '/search') {
+        this.$router.push('/search');
       }
 
       const searchParams = {

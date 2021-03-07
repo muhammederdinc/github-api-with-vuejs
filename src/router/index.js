@@ -1,14 +1,14 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import SearchResults from '../modules/searchResults';
+import Search from '../modules/search';
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/searchResults',
-    name: 'SearchResults',
-    component: SearchResults,
+    path: '/search',
+    name: 'Search',
+    component: Search,
   },
 ];
 
