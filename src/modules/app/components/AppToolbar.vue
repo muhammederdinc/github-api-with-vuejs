@@ -1,5 +1,5 @@
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapState } from 'vuex';
 
 export default {
   name: 'AppToolbar',
@@ -12,6 +12,9 @@ export default {
       'Updates',
     ],
   }),
+  computed: {
+    ...mapState('searchResults', ['searchType']),
+  },
   methods: {
     ...mapActions('searchResults', ['searchOnGithub']),
     searchAndRedirect() {
@@ -22,7 +25,7 @@ export default {
       }
 
       const searchParams = {
-        type: 'users',
+        type: this.searchType,
         searchParameter: this.searchParameter,
       };
 
