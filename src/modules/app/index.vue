@@ -34,7 +34,7 @@ export default {
               min-height="70vh"
               rounded="lg"
             >
-              <!--  -->
+              <router-view />
             </v-sheet>
           </v-col>
         </v-row>
