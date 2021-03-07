@@ -13,13 +13,20 @@ export default {
     ],
   }),
   methods: {
-    ...mapActions('app', ['searchGithubUser']),
-    redirectToSearchResults() {
+    ...mapActions('searchResults', ['searchOnGithub']),
+    searchAndRedirect() {
       const { path } = this.$router.currentRoute;
 
       if (path !== '/searchResults') {
         this.$router.push('/searchResults');
       }
+
+      const searchParams = {
+        type: 'users',
+        searchParameter: this.searchParameter,
+      };
+
+      this.searchOnGithub(searchParams);
     },
   },
 };
@@ -56,7 +63,7 @@ export default {
           hide-details
           rounded
           solo-inverted
-          @keyup.enter="redirectToSearchResults"
+          @keyup.enter="searchAndRedirect"
         />
       </v-responsive>
     </v-container>
