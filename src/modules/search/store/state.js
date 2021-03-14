@@ -1,3 +1,4 @@
 export default () => ({
-  searchType: 'users',
+  searchType: 'repositories',
+  searchResult: null,
 });
