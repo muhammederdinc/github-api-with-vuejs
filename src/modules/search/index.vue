@@ -63,14 +63,16 @@ export default {
 
                         <v-list-item-subtitle>
                           <v-icon small color="primary">mdi-star-outline</v-icon>
-                          <span class="caption pr-3">
+                          <span class="caption">
                             {{ item.stargazers_count }}
                           </span>
 
-                          <v-icon small color="orange darken-1">mdi-circle</v-icon>
-                          <span class="caption">
-                            {{ item.language }}
-                          </span>
+                          <template v-if="item.language">
+                            <v-icon small class="pl-3" color="orange darken-1">mdi-circle</v-icon>
+                            <span class="caption">
+                              {{ item.language }}
+                            </span>
+                          </template>
 
                           <span v-if="item.license" class="caption pl-3">
                             {{ item.license.name }}
