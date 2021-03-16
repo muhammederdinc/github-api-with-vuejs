@@ -18,7 +18,10 @@ export default {
           <v-list-item :key="item.title">
             <template v-slot:default>
               <v-list-item-avatar>
-                <v-img :src="item.owner.avatar_url" />
+                <v-img
+                  v-if="item.owner && item.owner.avatar_url"
+                  :src="item.owner.avatar_url"
+                />
               </v-list-item-avatar>
 
               <v-list-item-content>
