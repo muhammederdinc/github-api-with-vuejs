@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'SearchResultsArea',
+  name: 'RepositoriesSearchResults',
   props: {
     searchResults: {
       type: Array,

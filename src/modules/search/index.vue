@@ -1,13 +1,13 @@
 <script>
 import { mapState } from 'vuex';
 import SearchTypesCard from './components/SearchTypesCard';
-import SearchResultsArea from './components/SearchResultsArea';
+import RepositoriesSearchResults from './components/RepositoriesSearchResults';
 
 export default {
   name: 'Search',
   components: {
     SearchTypesCard,
-    SearchResultsArea,
+    RepositoriesSearchResults,
   },
   computed: {
     ...mapState('search', ['searchResult', 'searchTypes', 'searchType']),
@@ -25,7 +25,7 @@ export default {
       </v-col>
 
       <v-col cols="10">
-        <search-results-area
+        <repositories-search-results
           v-if="searchType === 'repositories'"
           :search-results="searchResult.items || []"
         />
