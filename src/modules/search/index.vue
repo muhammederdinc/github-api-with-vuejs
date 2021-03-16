@@ -10,7 +10,7 @@ export default {
     SearchResultsArea,
   },
   computed: {
-    ...mapState('search', ['searchResult', 'searchTypes']),
+    ...mapState('search', ['searchResult', 'searchTypes', 'searchType']),
   },
 };
 </script>
@@ -26,8 +26,13 @@ export default {
 
       <v-col cols="10">
         <search-results-area
+          v-if="searchType === 'repositories'"
           :search-results="searchResult.items || []"
         />
+
+        <div v-else>
+          {{ searchResult }}
+        </div>
       </v-col>
     </v-row>
   </v-container>

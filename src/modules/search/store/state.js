@@ -1,6 +1,7 @@
 export default () => ({
   searchType: 'repositories',
   searchResult: {},
+  searchParameter: '',
   searchTypes: [
     { type: 'repositories', text: 'Repositories', totalCount: null },
     { type: 'code', text: 'Code', totalCount: null },

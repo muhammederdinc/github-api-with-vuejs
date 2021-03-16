@@ -1,4 +1,6 @@
 <script>
+import { mapActions, mapGetters } from 'vuex';
+
 export default {
   name: 'SearchTypesCard',
   props: {
@@ -10,6 +12,16 @@ export default {
   data: () => ({
     selectedItem: 0,
   }),
+  computed: {
+    ...mapGetters('search', ['getSearchParameter']),
+  },
+  methods: {
+    ...mapActions('search', ['changeGithubSearchType', 'searchOnGithub']),
+    changeSearchType(newSearchType) {
+      this.changeGithubSearchType(newSearchType);
+      this.searchOnGithub(this.getSearchParameter);
+    },
+  },
 };
 </script>
 
@@ -20,7 +32,10 @@ export default {
         v-model="selectedItem"
         color="primary"
       >
-        <v-list-item v-for="(item, i) in searchTypes" :key="i">
+        <v-list-item
+          v-for="(item, i) in searchTypes" :key="i"
+          @click="changeSearchType(item.type)"
+        >
           <v-list-item-content>
             <v-list-item-title v-text="item.text" />
           </v-list-item-content>
