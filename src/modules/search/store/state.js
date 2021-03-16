@@ -1,7 +1,7 @@
 export default () => ({
   searchType: 'repositories',
   searchResult: {},
-  numbersOfSearchResults: [
+  searchTypes: [
     { type: 'repositories', text: 'Repositories', totalCount: null },
     { type: 'code', text: 'Code', totalCount: null },
     { type: 'commits', text: 'Commits', totalCount: null },

@@ -1,13 +1,14 @@
 <script>
 import { mapState } from 'vuex';
+import SearchTypesCard from './components/SearchTypesCard';
 
 export default {
   name: 'Search',
-  data: () => ({
-    selectedItem: 0,
-  }),
+  components: {
+    SearchTypesCard,
+  },
   computed: {
-    ...mapState('search', ['searchResult', 'numbersOfSearchResults']),
+    ...mapState('search', ['searchResult', 'searchTypes']),
   },
 };
 </script>
@@ -16,32 +17,9 @@ export default {
   <v-container>
     <v-row no-gutters>
       <v-col cols="2">
-        <v-card flat>
-          <v-list dense outlined class="pa-0">
-            <v-list-item-group
-              v-model="selectedItem"
-              color="primary"
-            >
-              <v-list-item v-for="(item, i) in numbersOfSearchResults" :key="i">
-                <v-list-item-content>
-                  <v-list-item-title v-text="item.text" />
-                </v-list-item-content>
-
-                <v-list-item-action>
-                  <v-list-item-action-text>
-                    <v-chip
-                      v-if="item.totalCount"
-                      class="white--text grey darken-1"
-                      x-small
-                    >
-                      {{ item.totalCount }}
-                    </v-chip>
-                  </v-list-item-action-text>
-                </v-list-item-action>
-              </v-list-item>
-            </v-list-item-group>
-          </v-list>
-        </v-card>
+        <search-types-card
+          :search-types="searchTypes"
+        />
       </v-col>
 
       <v-col cols="10">
