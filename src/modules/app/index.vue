@@ -29,7 +29,7 @@ export default {
             <app-navigation-menu />
           </v-col>
 
-          <v-col>
+          <v-col cols="10">
             <v-sheet
               min-height="70vh"
               rounded="lg"
