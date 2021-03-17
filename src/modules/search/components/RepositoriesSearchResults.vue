@@ -39,7 +39,7 @@ export default {
                   </span>
 
                   <template v-if="item.language">
-                    <v-icon small class="pl-3" color="orange darken-1">
+                    <v-icon x-small class="pl-3" color="orange darken-1">
                       mdi-circle
                     </v-icon>
 
