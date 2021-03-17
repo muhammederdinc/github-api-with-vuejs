@@ -2,12 +2,14 @@
 import { mapState } from 'vuex';
 import SearchTypesCard from './components/SearchTypesCard';
 import RepositoriesSearchResults from './components/RepositoriesSearchResults';
+import UserSearchResults from './components/UserSearchResults';
 
 export default {
   name: 'Search',
   components: {
     SearchTypesCard,
     RepositoriesSearchResults,
+    UserSearchResults,
   },
   computed: {
     ...mapState('search', ['searchResult', 'searchTypes', 'searchType']),
@@ -30,9 +32,10 @@ export default {
           :search-results="searchResult.items || []"
         />
 
-        <div v-else>
-          {{ searchResult }}
-        </div>
+        <user-search-results
+          v-else-if="searchType === 'users'"
+          :search-results="searchResult.items || []"
+        />
       </v-col>
     </v-row>
   </v-container>
