@@ -15,7 +15,7 @@ export default {
     <v-list three-line>
       <v-list-item-group>
         <template v-for="(item, index) in searchResults">
-          <v-list-item :key="item.title">
+          <v-list-item :key="item.id">
             <template v-slot:default>
               <v-list-item-avatar>
                 <v-img
