@@ -23,7 +23,7 @@ export default {
     <app-toolbar />
 
     <v-main class="grey lighten-3">
-      <v-container>
+      <v-container fluid>
         <v-row>
           <v-col cols="2">
             <app-navigation-menu />

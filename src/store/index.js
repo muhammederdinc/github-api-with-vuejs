@@ -1,14 +1,14 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-// import app from '../modules/app/store';
 import search from '../modules/search/store';
+import user from '../modules/user/store';
 
 Vue.use(Vuex);
 
 export const storeOptions = {
   modules: {
-    // app,
     search,
+    user,
   },
 };
 
