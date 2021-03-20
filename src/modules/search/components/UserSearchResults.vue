@@ -7,12 +7,22 @@ export default {
       required: true,
     },
   },
+  methods: {
+    redirectToUserDetail(username) {
+      const routerParams = {
+        name: 'User',
+        params: { username },
+      };
+
+      this.$router.push(routerParams);
+    },
+  },
 };
 </script>
 
 <template>
   <div>
-    <v-card class="mx-2">
+    <v-card outlined class="mx-2">
       <v-list two-line>
         <v-list-item-group>
           <template v-for="(item, index) in searchResults">
@@ -25,7 +35,10 @@ export default {
                 </v-list-item-avatar>
 
                 <v-list-item-content>
-                  <v-list-item-title v-text="item.login" />
+                  <v-list-item-title
+                    v-text="item.login"
+                    @click="redirectToUserDetail(item.login)"
+                  />
 
                   <v-list-item-subtitle v-if="item.type" class="caption text--primary pt-1">
                     <v-icon x-small color="primary">
