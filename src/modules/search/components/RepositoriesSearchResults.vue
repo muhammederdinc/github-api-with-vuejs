@@ -11,7 +11,7 @@ export default {
 </script>
 
 <template>
-  <v-card class="mx-2">
+  <v-card outlined class="mx-2">
     <v-list three-line>
       <v-list-item-group>
         <template v-for="(item, index) in searchResults">
