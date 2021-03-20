@@ -30,13 +30,15 @@ export default {
                 <v-list-item-subtitle v-text="item.description" class="text--primary" />
 
                 <v-list-item-subtitle>
-                  <v-icon small color="primary">
-                    mdi-star-outline
-                  </v-icon>
+                  <template v-if="item.stargazers_count">
+                    <v-icon small color="primary">
+                      mdi-star-outline
+                    </v-icon>
 
-                  <span class="caption">
-                    {{ item.stargazers_count }}
-                  </span>
+                    <span class="caption">
+                      {{ item.stargazers_count }}
+                    </span>
+                  </template>
 
                   <template v-if="item.language">
                     <v-icon x-small class="pl-3" color="orange darken-1">
@@ -52,7 +54,7 @@ export default {
                     {{ item.license.name }}
                   </span>
 
-                  <span class="caption pl-3">
+                  <span v-if="item.updated_at" class="caption pl-3">
                     Updated on {{ new Date(item.updated_at).getFullYear() }}
                   </span>
                 </v-list-item-subtitle>

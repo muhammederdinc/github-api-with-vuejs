@@ -27,7 +27,7 @@ export default {
                 <v-list-item-content>
                   <v-list-item-title v-text="item.login" />
 
-                  <v-list-item-subtitle class="caption text--primary pt-1">
+                  <v-list-item-subtitle v-if="item.type" class="caption text--primary pt-1">
                     <v-icon x-small color="primary">
                       mdi-account
                     </v-icon>

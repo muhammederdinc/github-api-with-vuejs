@@ -25,7 +25,7 @@ export default {
               </v-list-item-avatar>
 
               <v-list-item-content>
-                <v-list-item-title>
+                <v-list-item-title v-if="item.title">
                   <span>
                     {{ item.title }}
                   </span>
