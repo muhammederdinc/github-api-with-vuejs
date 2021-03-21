@@ -28,8 +28,25 @@ export default {
 <template>
   <v-container fluid>
     <v-row>
-      <v-col cols="4">
-        <v-card outlined>
+      <v-col cols="2" style="border: 1px solid">
+        <div>
+          <v-avatar
+            color="indigo"
+            size="240"
+          >
+            <img
+              :src="user.avatar_url"
+              alt="John"
+            >
+          </v-avatar>
+        </div>
+
+        <div class="px-3 pt-3 headline">
+          {{ user.name }}
+        </div>
+        <div class="px-3 body-1"> {{ `@${user.login}`}} </div>
+        <div class="px-3 caption"> {{ user.bio }} </div>
+        <!-- <v-card outlined>
           <v-row>
             <v-col cols="5">
               <v-avatar
@@ -53,7 +70,7 @@ export default {
               Followers
             </v-col>
           </v-row>
-        </v-card>
+        </v-card> -->
         <!-- <v-card outlined>
           <v-row>
             <v-col>
