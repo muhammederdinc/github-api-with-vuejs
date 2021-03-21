@@ -56,15 +56,15 @@ export default {
         />
 
         <div class="px-3 pt-3 caption">
-          <v-icon class="pr-2">
+          <v-icon small class="pr-2">
             mdi-account-multiple
           </v-icon>
 
           <v-chip
             class="user-text-hover"
-            small outlined
+            x-small outlined
           >
-            Follewers: <span v-text="user.followers" class="font-weight-bold" />
+            Follewers: <span v-text="user.followers" class="font-weight-bold caption" />
           </v-chip>
 
           <v-icon class="mb-1" small>
@@ -73,16 +73,16 @@ export default {
 
           <v-chip
             class="user-text-hover"
-            small outlined
+            x-small outlined
           >
-            Following: <span v-text="user.following" class="font-weight-bold" />
+            Following: <span v-text="user.following" class="font-weight-bold caption" />
           </v-chip>
 
           <v-chip
             class="ml-3"
-            small outlined
+            x-small outlined
           >
-            {{ new Date(user.created_at).getFullYear() }}
+            Created: {{ new Date(user.created_at).getFullYear() }}
           </v-chip>
         </div>
       </v-col>
