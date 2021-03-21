@@ -85,6 +85,61 @@ export default {
             Created: {{ new Date(user.created_at).getFullYear() }}
           </v-chip>
         </div>
+
+        <div class="pt-2 caption text-center">
+          <template v-if="user.company">
+            <v-icon
+              class="mb-1"
+              color="primary"
+              small
+            >
+              mdi-domain
+            </v-icon>
+
+            {{ user.company }}
+          </template>
+
+          <template v-if="user.location">
+            <v-icon
+              class="mb-1 pl-2"
+              color="primary"
+              small
+            >
+              mdi-map-marker
+            </v-icon>
+
+            {{ user.location }}
+          </template>
+        </div>
+
+        <div class="pt-2 caption text-center">
+          <template v-if="user.blog">
+            <v-icon
+              color="primary"
+              small
+            >
+              mdi-link
+            </v-icon>
+
+            {{ user.blog }}
+          </template>
+
+          <template v-if="user.twitter_username">
+            <v-icon
+              class="pl-2"
+              color="primary"
+              small
+            >
+              mdi-twitter
+            </v-icon>
+
+            {{ user.twitter_username }}
+          </template>
+        </div>
+      </v-col>
+
+      <v-col cols="9" style="border: 1px solid">
+        Test
       </v-col>
     </v-row>
   </v-container>
