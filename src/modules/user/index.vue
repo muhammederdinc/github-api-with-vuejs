@@ -28,7 +28,7 @@ export default {
 <template>
   <v-container fluid>
     <v-row>
-      <v-col cols="2" style="border: 1px solid">
+      <v-col cols="3" style="border: 1px solid">
         <div>
           <v-avatar
             color="indigo"
@@ -44,83 +44,32 @@ export default {
         <div class="px-3 pt-3 headline">
           {{ user.name }}
         </div>
+
         <div class="px-3 body-1"> {{ `@${user.login}`}} </div>
-        <div class="px-3 caption"> {{ user.bio }} </div>
-        <!-- <v-card outlined>
-          <v-row>
-            <v-col cols="5">
-              <v-avatar
-                color="indigo"
-                size="160"
-              >
-                <img
-                  :src="user.avatar_url"
-                  alt="John"
-                >
-              </v-avatar>
-            </v-col>
 
-            <v-col cols="7">
-              <div class="mt-2"> {{ user.name }} </div>
-              <div class="caption"> {{ `@${user.login}`}} </div>
-              <div class="caption"> {{ user.bio }} </div>
-            </v-col>
+        <div class="px-3 pt-3 caption"> {{ user.bio }} </div>
 
-            <v-col cols="12" class="text-end">
-              Followers
-            </v-col>
-          </v-row>
-        </v-card> -->
-        <!-- <v-card outlined>
-          <v-row>
-            <v-col>
-              <v-avatar
-                color="indigo"
-                size="80"
-              >
-                <img
-                  :src="user.avatar_url"
-                  alt="John"
-                >
-              </v-avatar>
-            </v-col>
+        <div class="px-3 pt-3 caption">
+          <v-icon small>mdi-account-multiple</v-icon>
+          <span class="user-text-hover">
+            Follewers: <span class="body-2"> {{ user.followers }} </span>
+          </span>
 
-            <v-col>
-              <v-card-title>
-                <div>
-                  <div class="headline">
-                    {{ user.name }}
-                  </div>
-                  <div class="caption">{{ user.bio }}</div>
-                  <div>(2013)</div>
-                </div>
-              </v-card-title>
-            </v-col>
-          </v-row>
-
-          <v-divider />
-
-          <v-card-actions class="pa-4">
-            {{ user.name }}
-
-            <v-spacer />
-
-            <span class="grey--text text--lighten-2 caption mr-2">
-              ({{ rating }})
-            </span>
-
-            <v-rating
-              v-model="rating"
-              background-color="white"
-              color="yellow accent-4"
-              dense
-              half-increments
-              hover
-              size="18"
-            />
-          </v-card-actions>
-        </v-card> -->
+          <v-icon class="mb-1" small>mdi-circle-small</v-icon>
+          <span class="user-text-hover">
+            Following: <span class="body-2"> {{ user.following }} </span>
+          </span>
+        </div>
       </v-col>
     </v-row>
   </v-container>
 </template>
+
+<style lang="scss">
+  .user-text-hover {
+    &:hover {
+      color: #1E88E5;
+      cursor: pointer;
+    }
+  }
+</style>
