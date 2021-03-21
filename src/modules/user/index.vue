@@ -28,7 +28,7 @@ export default {
 <template>
   <v-container fluid>
     <v-row>
-      <v-col cols="3" style="border: 1px solid">
+      <v-col cols="3">
         <div>
           <v-avatar
             color="indigo"
@@ -41,31 +41,56 @@ export default {
           </v-avatar>
         </div>
 
-        <div class="px-3 pt-3 headline">
-          {{ user.name }}
+        <div
+          v-text="user.name"
+          class="px-3 pt-3 headline"
+        />
+
+        <div class="px-3 body-1">
+          {{ `@${user.login}` }}
         </div>
 
-        <div class="px-3 body-1"> {{ `@${user.login}`}} </div>
-
-        <div class="px-3 pt-3 caption"> {{ user.bio }} </div>
+        <div
+          v-text="user.bio"
+          class="px-3 pt-3 caption"
+        />
 
         <div class="px-3 pt-3 caption">
-          <v-icon small>mdi-account-multiple</v-icon>
-          <span class="user-text-hover">
-            Follewers: <span class="body-2"> {{ user.followers }} </span>
-          </span>
+          <v-icon class="pr-2">
+            mdi-account-multiple
+          </v-icon>
 
-          <v-icon class="mb-1" small>mdi-circle-small</v-icon>
-          <span class="user-text-hover">
-            Following: <span class="body-2"> {{ user.following }} </span>
-          </span>
+          <v-chip
+            class="user-text-hover"
+            small outlined
+          >
+            Follewers: <span v-text="user.followers" class="font-weight-bold" />
+          </v-chip>
+
+          <v-icon class="mb-1" small>
+            mdi-circle-small
+          </v-icon>
+
+          <v-chip
+            class="user-text-hover"
+            small outlined
+          >
+            Following: <span v-text="user.following" class="font-weight-bold" />
+          </v-chip>
+
+          <v-chip
+            class="ml-3"
+            small outlined
+          >
+            {{ new Date(user.created_at).getFullYear() }}
+          </v-chip>
         </div>
       </v-col>
     </v-row>
   </v-container>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .user-text-hover {
     &:hover {
       color: #1E88E5;
