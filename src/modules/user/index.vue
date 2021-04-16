@@ -149,7 +149,22 @@ export default {
       </v-col>
 
       <v-col cols="9" sm="12" lg="9" style="border: 1px solid">
-        {{ repos }}
+        <v-data-iterator
+          :items="repos"
+          items-per-page.sync="4"
+        >
+          <template v-slot:default="{ items }">
+            <v-row>
+              <v-col v-for="item in items" :key="item.id" cols="12">
+                <v-card>
+                  <v-card-title primary-title>
+                    {{ item.name }}
+                  </v-card-title>
+                </v-card>
+              </v-col>
+            </v-row>
+          </template>
+        </v-data-iterator>
       </v-col>
     </v-row>
   </v-container>
