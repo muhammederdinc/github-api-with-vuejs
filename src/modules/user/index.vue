@@ -28,7 +28,7 @@ export default {
 <template>
   <v-container fluid>
     <v-row>
-      <v-col cols="3">
+      <v-col cols="3" sm="12" lg="3">
         <div>
           <v-avatar
             color="indigo"
@@ -112,7 +112,7 @@ export default {
           </template>
         </div>
 
-        <div class="pt-2 caption text-center">
+        <div class="pt-2 caption text-truncate">
           <template v-if="user.blog">
             <v-icon
               color="primary"
@@ -121,7 +121,11 @@ export default {
               mdi-link
             </v-icon>
 
-            {{ user.blog }}
+            <a
+              v-text="user.blog"
+              :href="user.blog"
+              target="_blank"
+            />
           </template>
 
           <template v-if="user.twitter_username">
@@ -138,7 +142,7 @@ export default {
         </div>
       </v-col>
 
-      <v-col cols="9" style="border: 1px solid">
+      <v-col cols="9" sm="12" lg="9" style="border: 1px solid">
         Test
       </v-col>
     </v-row>
