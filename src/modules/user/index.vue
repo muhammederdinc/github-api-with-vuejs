@@ -8,18 +8,24 @@ export default {
     username: '',
   }),
   computed: {
-    ...mapState('user', ['user']),
+    ...mapState('user', ['user', 'repos']),
   },
   created() {
     this.username = this.$route.params.username || '';
   },
   mounted() {
-    if (this.username) this.fetchData();
+    if (this.username) {
+      this.fetchData();
+      this.fetchRepos();
+    }
   },
   methods: {
-    ...mapActions('user', ['fetchUserDetail']),
+    ...mapActions('user', ['fetchUserDetail', 'fetchUserRepos']),
     fetchData() {
       this.fetchUserDetail(this.username);
+    },
+    fetchRepos() {
+      this.fetchUserRepos(this.username);
     },
   },
 };
@@ -143,7 +149,7 @@ export default {
       </v-col>
 
       <v-col cols="9" sm="12" lg="9" style="border: 1px solid">
-        Test
+        {{ repos }}
       </v-col>
     </v-row>
   </v-container>

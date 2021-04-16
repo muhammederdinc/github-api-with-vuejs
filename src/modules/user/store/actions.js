@@ -7,4 +7,10 @@ export default {
         commit('setUser', data);
       });
   },
+  fetchUserRepos({ commit }, username) {
+    axios.get(`users/${username}/repos`)
+      .then(({ data }) => {
+        commit('setRepos', data);
+      });
+  },
 };
