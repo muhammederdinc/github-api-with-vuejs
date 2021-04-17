@@ -168,13 +168,13 @@ export default {
 
                         <br />
 
-                        <v-chip x-small class="ma-2" color="deep-purple accent-4" outlined>
-                          <v-icon x-small left>mdi-star</v-icon>
+                        <v-chip x-small class="mr-1" outlined>
+                          <v-icon color="primary" x-small left>mdi-star</v-icon>
                           {{ item.stargazers_count }}
                         </v-chip>
 
-                        <v-chip x-small class="ma-2" color="deep-purple accent-4" outlined>
-                          <v-icon x-small left>mdi-eye</v-icon>
+                        <v-chip x-small class="mr-1" outlined>
+                          <v-icon color="deep-purple accent-4" x-small left>mdi-eye</v-icon>
                           {{ item.watchers_count }}
                         </v-chip>
                       </v-col>
@@ -189,6 +189,28 @@ export default {
                       </v-col>
                     </v-row>
                   </v-card-text>
+
+                  <v-card-actions class="caption py-0 my-0">
+                    <v-chip v-if="item.language" x-small class="ma-1" outlined>
+                      <v-icon color="primary" x-small left>mdi-circle</v-icon>
+                      {{ item.language}}
+                    </v-chip>
+
+                    <v-chip x-small class="ma-1" outlined>
+                      <v-icon color="primary" x-small left>mdi-source-fork</v-icon>
+                      {{ item.forks_count }}
+                    </v-chip>
+
+                    <v-chip v-if="item.license" x-small class="ma-1" outlined>
+                      <v-icon color="primary" x-small left>mdi-anchor</v-icon>
+                      {{ item.license.name }}
+                    </v-chip>
+
+                    <v-chip x-small class="ma-1" outlined>
+                      <v-icon color="primary" x-small left>mdi-calendar</v-icon>
+                      Updated on: {{ item.pushed_at }}
+                    </v-chip>
+                  </v-card-actions>
                 </v-card>
               </v-col>
             </v-row>
