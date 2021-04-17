@@ -156,10 +156,39 @@ export default {
           <template v-slot:default="{ items }">
             <v-row>
               <v-col v-for="item in items" :key="item.id" cols="12">
-                <v-card>
-                  <v-card-title primary-title>
-                    {{ item.name }}
+                <v-card outlined>
+                  <v-card-title>
+                    <v-row>
+                      <v-col cols="9">
+                        {{ item.name }}
+                      </v-col>
+
+                      <v-col cols="3" class="text-right caption pa-0 ma-0">
+                        Created: {{ item.created_at }}
+
+                        <br />
+
+                        <v-chip x-small class="ma-2" color="deep-purple accent-4" outlined>
+                          <v-icon x-small left>mdi-star</v-icon>
+                          {{ item.stargazers_count }}
+                        </v-chip>
+
+                        <v-chip x-small class="ma-2" color="deep-purple accent-4" outlined>
+                          <v-icon x-small left>mdi-eye</v-icon>
+                          {{ item.watchers_count }}
+                        </v-chip>
+                      </v-col>
+                    </v-row>
                   </v-card-title>
+
+                  <v-card-text>
+                    <v-row>
+                      <v-col cols="12">
+                        {{ item.description && item.description.length > 350 ?
+                        `${item.description.substring(0, 349)}...` : item.description }}
+                      </v-col>
+                    </v-row>
+                  </v-card-text>
                 </v-card>
               </v-col>
             </v-row>
