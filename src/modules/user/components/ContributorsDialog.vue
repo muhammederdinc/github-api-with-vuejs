@@ -35,7 +35,7 @@ export default {
 <template>
   <v-dialog
     v-model="isDialogVisible"
-    width="500"
+    width="400"
     persistent
   >
     <v-card>
@@ -43,7 +43,7 @@ export default {
         Contributors
       </v-card-title>
 
-      <v-card-text>
+      <v-card-text id="scroll-target" class="overflow-y-auto contributors-dialog__card-text">
         <v-row
           v-for="contributor in contributors" :key="contributor.node_id"
           align="center" class="spacer" no-gutters
@@ -57,7 +57,7 @@ export default {
             </v-avatar>
           </v-col>
 
-          <v-col>
+          <v-col class="pl-2">
             <strong v-text="contributor.login" />
 
             <span
@@ -83,3 +83,11 @@ export default {
     </v-card>
   </v-dialog>
 </template>
+
+<style lang="scss">
+  .contributors-dialog {
+    &__card-text {
+      max-height: 400px
+    }
+  }
+</style>
