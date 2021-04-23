@@ -15,6 +15,7 @@ export default {
   data() {
     return {
       isContributorsDialogVisible: false,
+      contributorsUrl: '',
     };
   },
   methods: {
@@ -23,6 +24,10 @@ export default {
       const isDescriptionLong = description && description.length > 350;
 
       return isDescriptionLong ? `${description.substring(0, 349)}...` : description;
+    },
+    openContributorsDialog(url) {
+      this.isContributorsDialogVisible = true;
+      this.contributorsUrl = url;
     },
   },
 };
@@ -52,12 +57,12 @@ export default {
 
                     <br />
 
-                    <v-chip x-small class="mr-1" outlined>
+                    <v-chip v-if="item.stargazers_count" x-small class="mr-1" outlined>
                       <v-icon color="primary" x-small left>mdi-star</v-icon>
                       {{ item.stargazers_count }}
                     </v-chip>
 
-                    <v-chip x-small class="mr-1" outlined>
+                    <v-chip v-if="item.watchers_count" x-small class="mr-1" outlined>
                       <v-icon color="deep-purple accent-4" x-small left>mdi-eye</v-icon>
                       {{ item.watchers_count }}
                     </v-chip>
@@ -79,7 +84,7 @@ export default {
                   {{ item.language}}
                 </v-chip>
 
-                <v-chip x-small class="ma-1" outlined>
+                <v-chip v-if="item.forks_count" x-small class="ma-1" outlined>
                   <v-icon color="primary" x-small left>mdi-source-fork</v-icon>
                   {{ item.forks_count }}
                 </v-chip>
@@ -99,9 +104,8 @@ export default {
                 <a
                   v-text="`contributors`"
                   class="text-decoration-none"
-                  @click="isContributorsDialogVisible = true"
+                  @click="openContributorsDialog(item.contributors_url)"
                 />
-
               </v-card-actions>
             </v-card>
           </v-col>
@@ -111,6 +115,7 @@ export default {
 
     <contributors-dialog
       v-if="isContributorsDialogVisible"
+      :contributors-url="contributorsUrl"
       @close="isContributorsDialogVisible = false"
     />
   </div>

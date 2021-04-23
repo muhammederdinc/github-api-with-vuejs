@@ -13,4 +13,7 @@ export default {
         commit('setRepos', data);
       });
   },
+  fetchContributors(_, url) {
+    return axios.get(url);
+  },
 };

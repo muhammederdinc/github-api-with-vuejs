@@ -1,13 +1,33 @@
 <script>
+import { mapActions } from 'vuex';
+
 export default {
   name: 'ContributorsDialog',
+  props: {
+    contributorsUrl: {
+      type: String,
+      required: true,
+    },
+  },
   data() {
     return {
       isDialogVisible: false,
+      contributors: [],
     };
   },
   mounted() {
     this.isDialogVisible = true;
+
+    this.fetchData();
+  },
+  methods: {
+    ...mapActions('user', ['fetchContributors']),
+    fetchData() {
+      this.fetchContributors(this.contributorsUrl)
+        .then(({ data }) => {
+          this.contributors = data;
+        });
+    },
   },
 };
 </script>
@@ -24,13 +44,35 @@ export default {
       </v-card-title>
 
       <v-card-text>
-        ds
+        <v-row
+          v-for="contributor in contributors" :key="contributor.node_id"
+          align="center" class="spacer" no-gutters
+        >
+          <v-col cols="4" sm="2" md="1">
+            <v-avatar size="26px">
+              <img
+                :src="contributor.avatar_url"
+                :alt="contributor.login"
+              >
+            </v-avatar>
+          </v-col>
+
+          <v-col>
+            <strong v-text="contributor.login" />
+
+            <span
+              v-text="`(contributions: ${contributor.contributions})`"
+              class="pl-1 caption"
+            />
+          </v-col>
+        </v-row>
       </v-card-text>
 
       <v-divider />
 
       <v-card-actions>
         <v-spacer />
+
         <v-btn
           v-text="'Close'"
           color="error"
