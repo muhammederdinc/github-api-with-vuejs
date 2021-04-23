@@ -9,7 +9,7 @@ export default {
   props: {
     repositories: {
       type: Array,
-      reuqired: true,
+      required: true,
     },
   },
   data() {
@@ -55,15 +55,19 @@ export default {
                   <v-col cols="3" class="text-right caption pa-0 ma-0">
                     Created: {{ item.created_at }}
 
-                    <br />
+                    <br>
 
                     <v-chip v-if="item.stargazers_count" x-small class="mr-1" outlined>
-                      <v-icon color="primary" x-small left>mdi-star</v-icon>
+                      <v-icon color="primary" x-small left>
+                        mdi-star
+                      </v-icon>
                       {{ item.stargazers_count }}
                     </v-chip>
 
                     <v-chip v-if="item.watchers_count" x-small class="mr-1" outlined>
-                      <v-icon color="deep-purple accent-4" x-small left>mdi-eye</v-icon>
+                      <v-icon color="deep-purple accent-4" x-small left>
+                        mdi-eye
+                      </v-icon>
                       {{ item.watchers_count }}
                     </v-chip>
                   </v-col>
@@ -80,22 +84,30 @@ export default {
 
               <v-card-actions class="caption py-0 my-0">
                 <v-chip v-if="item.language" x-small class="ma-1" outlined>
-                  <v-icon color="primary" x-small left>mdi-circle</v-icon>
-                  {{ item.language}}
+                  <v-icon color="primary" x-small left>
+                    mdi-circle
+                  </v-icon>
+                  {{ item.language }}
                 </v-chip>
 
                 <v-chip v-if="item.forks_count" x-small class="ma-1" outlined>
-                  <v-icon color="primary" x-small left>mdi-source-fork</v-icon>
+                  <v-icon color="primary" x-small left>
+                    mdi-source-fork
+                  </v-icon>
                   {{ item.forks_count }}
                 </v-chip>
 
                 <v-chip v-if="item.license" x-small class="ma-1" outlined>
-                  <v-icon color="primary" x-small left>mdi-anchor</v-icon>
+                  <v-icon color="primary" x-small left>
+                    mdi-anchor
+                  </v-icon>
                   {{ item.license.name }}
                 </v-chip>
 
                 <v-chip x-small class="ma-1" outlined>
-                  <v-icon color="primary" x-small left>mdi-calendar</v-icon>
+                  <v-icon color="primary" x-small left>
+                    mdi-calendar
+                  </v-icon>
                   Updated on: {{ item.pushed_at }}
                 </v-chip>
 
