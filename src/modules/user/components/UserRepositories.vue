@@ -1,4 +1,5 @@
 <script>
+import dateFormat from '@/mixins/dateFormat';
 import ContributorsDialog from './ContributorsDialog';
 
 export default {
@@ -6,6 +7,7 @@ export default {
   components: {
     ContributorsDialog,
   },
+  mixins: [dateFormat],
   props: {
     repositories: {
       type: Array,
@@ -53,7 +55,7 @@ export default {
                   </v-col>
 
                   <v-col cols="3" class="text-right caption pa-0 ma-0">
-                    Created: {{ item.created_at }}
+                    Created: {{ $_getFormattedDate(item.created_at) }}
 
                     <br>
 
