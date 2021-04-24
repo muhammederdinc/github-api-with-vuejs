@@ -1,7 +1,7 @@
 export default {
   name: 'dateFormat',
   methods: {
-    $_getFormattedDate(date, dateOptions = null) {
+    getFormattedDate(date, dateOptions = null) {
       const event = new Date(date);
       let options = null;
 

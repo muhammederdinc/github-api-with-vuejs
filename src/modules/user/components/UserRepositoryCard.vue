@@ -37,7 +37,7 @@ export default {
         </v-col>
 
         <v-col cols="3" class="text-right caption pa-0 ma-0">
-          Created: {{ $_getFormattedDate(item.created_at) }}
+          Created: {{ getFormattedDate(item.created_at) }}
 
           <br>
 
