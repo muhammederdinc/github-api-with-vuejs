@@ -10,8 +10,8 @@ export default {
   methods: {
     redirectToUserDetail(username) {
       const routerParams = {
-        name: 'User',
-        params: { username },
+        path: 'user',
+        query: { username },
       };
 
       this.$router.push(routerParams);

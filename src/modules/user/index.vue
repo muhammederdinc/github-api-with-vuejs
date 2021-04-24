@@ -17,7 +17,7 @@ export default {
     ...mapState('user', ['user', 'repos']),
   },
   created() {
-    this.username = this.$route.params.username || '';
+    this.username = this.$route.query.username || '';
   },
   mounted() {
     if (this.username) {
