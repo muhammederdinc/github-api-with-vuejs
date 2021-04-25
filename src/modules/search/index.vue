@@ -1,5 +1,5 @@
 <script>
-import { mapState } from 'vuex';
+import { mapActions, mapState } from 'vuex';
 import SearchTypesCard from './components/SearchTypesCard';
 import RepositoriesSearchResults from './components/RepositoriesSearchResults';
 import UserSearchResults from './components/UserSearchResults';
@@ -13,8 +13,33 @@ export default {
     UserSearchResults,
     IssueSearchResults,
   },
+  data() {
+    return {
+      searchParams: {},
+    };
+  },
   computed: {
-    ...mapState('search', ['searchResult', 'searchTypes', 'searchType']),
+    ...mapState('search', ['searchResult', 'searchTypes']),
+  },
+  watch: { // eslint-disable-next-line
+    '$route.query.q': function () {
+      this.fetchData();
+    },
+  },
+  mounted() {
+    this.fetchData();
+  },
+  methods: {
+    ...mapActions('search', ['searchOnGithub']),
+    fetchData(newSearchType = null) {
+      const { q = '', type = '' } = this.$route.query;
+      const searchParams = { type: newSearchType || type, searchParameter: q };
+      const routerParams = { path: 'search', query: { q, type: newSearchType || type } };
+
+      if (newSearchType) this.$router.push(routerParams);
+
+      this.searchOnGithub(searchParams);
+    },
   },
 };
 </script>
@@ -25,22 +50,23 @@ export default {
       <v-col cols="2">
         <search-types-card
           :search-types="searchTypes"
+          @search="fetchData"
         />
       </v-col>
 
       <v-col cols="10">
         <repositories-search-results
-          v-if="searchType === 'repositories'"
+          v-if="$route.query.type === 'repositories'"
           :search-results="searchResult.items || []"
         />
 
         <user-search-results
-          v-else-if="searchType === 'users'"
+          v-else-if="$route.query.type === 'users'"
           :search-results="searchResult.items || []"
         />
 
         <issue-search-results
-          v-else-if="searchType === 'issues'"
+          v-else-if="$route.query.type === 'issues'"
           :search-results="searchResult.items || []"
         />
       </v-col>
