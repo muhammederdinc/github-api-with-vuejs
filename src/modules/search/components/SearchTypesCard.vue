@@ -1,5 +1,5 @@
 <script>
-import { mapActions, mapGetters } from 'vuex';
+import { mapActions } from 'vuex';
 
 export default {
   name: 'SearchTypesCard',
@@ -12,14 +12,20 @@ export default {
   data: () => ({
     selectedItem: 0,
   }),
-  computed: {
-    ...mapGetters('search', ['getSearchParameter']),
+  created() {
+    if (this.$route.query && this.$route.query.type) {
+      if (this.$route.query.type === 'repositories') this.selectedItem = 0;
+      else if (this.$route.query.type === 'issues') this.selectedItem = 1;
+      else if (this.$route.query.type === 'users') this.selectedItem = 2;
+
+      this.changeGithubSearchType(this.$route.query.type);
+    }
   },
   methods: {
-    ...mapActions('search', ['changeGithubSearchType', 'searchOnGithub']),
+    ...mapActions('search', ['changeGithubSearchType']),
     changeSearchType(newSearchType) {
       this.changeGithubSearchType(newSearchType);
-      this.searchOnGithub(this.getSearchParameter);
+      this.$emit('search', newSearchType);
     },
   },
 };
