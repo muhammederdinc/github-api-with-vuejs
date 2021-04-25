@@ -1,5 +1,5 @@
 <script>
-import { mapActions, mapState } from 'vuex';
+import { mapState } from 'vuex';
 
 export default {
   name: 'AppToolbar',
@@ -16,20 +16,17 @@ export default {
     ...mapState('search', ['searchType']),
   },
   methods: {
-    ...mapActions('search', ['searchOnGithub']),
-    searchAndRedirect() {
-      const { path } = this.$router.currentRoute;
+    redirectToSearch() {
+      const { q = '', type = '' } = this.$route.query;
 
-      if (path !== '/search') {
-        this.$router.push('/search');
+      if (q !== this.searchParameter || type !== this.searchType) {
+        const routerParams = {
+          path: 'search',
+          query: { q: this.searchParameter, type: this.searchType },
+        };
+
+        this.$router.push(routerParams);
       }
-
-      const searchParams = {
-        type: this.searchType,
-        searchParameter: this.searchParameter,
-      };
-
-      this.searchOnGithub(searchParams);
     },
   },
 };
@@ -66,7 +63,7 @@ export default {
           hide-details
           rounded
           solo-inverted
-          @keyup.enter="searchAndRedirect"
+          @keyup.enter="redirectToSearch"
         />
       </v-responsive>
     </v-container>
