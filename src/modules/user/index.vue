@@ -10,7 +10,6 @@ export default {
     UserInformation,
   },
   data: () => ({
-    rating: 4.3,
     username: '',
   }),
   computed: {
