@@ -38,7 +38,7 @@ export default {
         <v-row>
           <v-col v-for="item in items" :key="item.id" cols="12">
             <user-repository-card
-              :item="item"
+              :user-repository="item"
               @showContributors="openContributorsDialog"
             />
           </v-col>
