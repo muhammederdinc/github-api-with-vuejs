@@ -31,13 +31,13 @@ export default {
       <v-col v-if="user.bio" v-text="user.bio" class="pt-3 caption" cols="12" />
 
       <v-col class="pt-3 caption" cols="12">
-        <v-icon small class="pr-2">
+        <v-icon small color="primary" class="pr-2">
           mdi-account-multiple
         </v-icon>
 
         <v-chip
           class="user-text-hover"
-          x-small outlined
+          x-small outlined color="primary"
           @click="showFollowersOrFollowing('followers')"
         >
           Follewers: <span v-text="user.followers" />
@@ -49,7 +49,7 @@ export default {
 
         <v-chip
           class="user-text-hover"
-          x-small outlined
+          x-small outlined color="primary"
           @click="showFollowersOrFollowing('following')"
         >
           Following: <span v-text="user.following" />
@@ -57,68 +57,75 @@ export default {
       </v-col>
 
       <v-col v-if="user.created_at" cols="12">
-        <v-icon small class="pr-2">
+        <v-icon small color="primary" class="pr-2">
           mdi-calendar-check
         </v-icon>
 
-        <v-chip x-small outlined>
+        <v-chip x-small outlined color="primary">
           Created: {{ new Date(user.created_at).getFullYear() }}
         </v-chip>
       </v-col>
 
-      <v-col class="pt-2 caption" cols="12">
-        <template v-if="user.company">
-          <v-icon
-            class="mb-1"
-            color="primary"
-            small
-          >
-            mdi-domain
-          </v-icon>
+      <v-col
+        v-if="user.company"
+        class="pt-2 caption" cols="12"
+      >
+        <v-icon
+          class="mb-1"
+          color="primary"
+          small
+        >
+          mdi-domain
+        </v-icon>
 
-          {{ user.company }}
-        </template>
-
-        <template v-if="user.location">
-          <v-icon
-            class="mb-1 pl-2"
-            color="primary"
-            small
-          >
-            mdi-map-marker
-          </v-icon>
-
-          {{ user.location }}
-        </template>
+        {{ user.company }}
       </v-col>
 
-      <v-col class="pt-2 caption text-truncate">
-        <template v-if="user.blog">
-          <v-icon
-            color="primary"
-            small
-          >
-            mdi-link
-          </v-icon>
+      <v-col
+        v-if="user.location"
+        class="pt-2 caption" cols="12"
+      >
+        <v-icon
+          class="mb-1"
+          color="primary"
+          small
+        >
+          mdi-map-marker
+        </v-icon>
 
-          <a
-            v-text="user.blog"
-            :href="user.blog"
-            target="_blank"
-          />
-        </template>
+        {{ user.location }}
+      </v-col>
 
-        <template v-if="user.twitter_username">
-          <v-icon
-            class="pl-2"
-            color="primary"
-            small
-          >
-            mdi-twitter
-          </v-icon>
+      <v-col
+        v-if="user.blog"
+        class="pt-2 caption text-truncate" cols="12"
+      >
+        <v-icon
+          color="primary"
+          small
+        >
+          mdi-link
+        </v-icon>
 
-          {{ user.twitter_username }}
-        </template>
+        <a
+          v-text="user.blog"
+          :href="user.blog"
+          target="_blank"
+        />
+      </v-col>
+
+      <v-col
+        v-if="user.twitter_username"
+        class="pt-2 caption text-truncate" cols="12"
+      >
+        <v-icon
+          color="primary"
+          small
+        >
+          mdi-twitter
+        </v-icon>
+
+        {{ user.twitter_username }}
       </v-col>
     </v-row>
   </v-container>
