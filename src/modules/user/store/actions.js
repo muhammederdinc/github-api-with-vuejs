@@ -16,4 +16,7 @@ export default {
   fetchContributors(_, url) {
     return axios.get(url);
   },
+  fetchFollowersOrFollowing(_, url) {
+    return axios.get(url);
+  },
 };
