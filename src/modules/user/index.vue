@@ -14,7 +14,7 @@ export default {
   data: () => ({
     username: '',
     isUserFollowersDialogVisible: false,
-    followersOrFollowingUrl: '',
+    followersOrFollowingParams: '',
   }),
   computed: {
     ...mapState('user', ['user', 'repos']),
@@ -36,9 +36,9 @@ export default {
     fetchRepos() {
       this.fetchUserRepos(this.username);
     },
-    showFollowersOrFollowing(url) {
+    showFollowersOrFollowing(type) {
       this.isUserFollowersDialogVisible = true;
-      this.followersOrFollowingUrl = url;
+      this.followersOrFollowingParams = { username: this.username, type };
     },
   },
 };
@@ -61,7 +61,7 @@ export default {
 
     <user-followers-or-following-dialog
       v-if="isUserFollowersDialogVisible"
-      :followers-or-following-url="followersOrFollowingUrl"
+      :followers-or-following-params="followersOrFollowingParams"
       @close="isUserFollowersDialogVisible = false"
     />
   </v-container>
