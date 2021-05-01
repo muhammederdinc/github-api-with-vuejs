@@ -4,8 +4,8 @@ import { mapActions } from 'vuex';
 export default {
   name: 'UserFollowersOrFollowingDialog',
   props: {
-    followersOrFollowingUrl: {
-      type: String,
+    followersOrFollowingParams: {
+      type: Object,
       required: true,
     },
   },
@@ -22,7 +22,7 @@ export default {
   methods: {
     ...mapActions('user', ['fetchFollowersOrFollowing']),
     fetchData() {
-      this.fetchFollowersOrFollowing(this.followersOrFollowingUrl)
+      this.fetchFollowersOrFollowing(this.followersOrFollowingParams)
         .then(({ data }) => {
           this.users = data;
         });
