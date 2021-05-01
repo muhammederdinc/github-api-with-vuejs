@@ -7,6 +7,11 @@ export default {
       required: true,
     },
   },
+  methods: {
+    showFollowersOrFollowing(type) {
+      this.$emit('showFollowersOrFollowing', type);
+    },
+  },
 };
 </script>
 
@@ -33,6 +38,7 @@ export default {
         <v-chip
           class="user-text-hover"
           x-small outlined
+          @click="showFollowersOrFollowing('followers')"
         >
           Follewers: <span v-text="user.followers" />
         </v-chip>
@@ -44,13 +50,16 @@ export default {
         <v-chip
           class="user-text-hover"
           x-small outlined
+          @click="showFollowersOrFollowing('following')"
         >
           Following: <span v-text="user.following" />
         </v-chip>
       </v-col>
 
       <v-col v-if="user.created_at" cols="12">
-        <v-icon small class="pr-2">mdi-calendar-check</v-icon>
+        <v-icon small class="pr-2">
+          mdi-calendar-check
+        </v-icon>
 
         <v-chip x-small outlined>
           Created: {{ new Date(user.created_at).getFullYear() }}
