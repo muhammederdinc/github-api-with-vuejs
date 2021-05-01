@@ -91,7 +91,7 @@ export default {
 <style lang="scss">
   .contributors-dialog {
     &__card-text {
-      max-height: 400px
+      max-height: 400px;
     }
   }
 </style>
