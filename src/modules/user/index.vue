@@ -39,11 +39,11 @@ export default {
 <template>
   <v-container fluid>
     <v-row>
-      <v-col cols="3" sm="12" lg="3">
+      <v-col cols="3" xs="12" sm="12" lg="3">
         <user-information :user="user" />
       </v-col>
 
-      <v-col cols="9" sm="12" lg="9">
+      <v-col cols="9" xs="12" sm="12" lg="9">
         <user-repositories :repositories="repos" />
       </v-col>
     </v-row>
