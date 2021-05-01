@@ -35,7 +35,7 @@ export default {
 <template>
   <v-dialog
     v-model="isDialogVisible"
-    width="400"
+    width="600"
     persistent
   >
     <v-card>
@@ -44,31 +44,35 @@ export default {
       </v-card-title>
 
       <v-card-text id="scroll-target" class="overflow-y-auto contributors-dialog__card-text">
-        <v-row
-          v-for="contributor in contributors" :key="contributor.node_id"
-          align="center" class="spacer" no-gutters
-        >
-          <v-col cols="4" sm="2" md="1">
-            <v-avatar size="26px">
-              <img
-                :src="contributor.avatar_url"
-                :alt="contributor.login"
-              >
-            </v-avatar>
-          </v-col>
+        <v-container>
+          <v-row
+            v-for="(contributor, index) in contributors" :key="contributor.node_id"
+            align="center" no-gutters
+          >
+            <v-col cols="4" sm="2" md="1">
+              <v-avatar size="40">
+                <img
+                  :src="contributor.avatar_url"
+                  :alt="contributor.login"
+                >
+              </v-avatar>
+            </v-col>
 
-          <v-col class="pl-2">
-            <strong v-text="contributor.login" />
+            <v-col class="pl-2">
+              <strong v-text="contributor.login" />
 
-            <span
-              v-text="`(contributions: ${contributor.contributions})`"
-              class="pl-1 caption"
-            />
-          </v-col>
-        </v-row>
+              <span
+                v-text="`(contributions: ${contributor.contributions})`"
+                class="pl-1 caption"
+              />
+            </v-col>
+
+            <v-col cols="12" class="pt-3">
+              <v-divider v-if="index < contributors.length - 1" />
+            </v-col>
+          </v-row>
+        </v-container>
       </v-card-text>
-
-      <v-divider />
 
       <v-card-actions>
         <v-spacer />
