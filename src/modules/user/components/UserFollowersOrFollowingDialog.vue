@@ -13,7 +13,19 @@ export default {
     return {
       isDialogVisible: false,
       users: [],
+      pagination: {
+        page: 1,
+        length: 1,
+      },
     };
+  },
+  created() {
+    if (this.followersOrFollowingParams.total) {
+      this.pagination = {
+        page: 1,
+        length: Math.ceil(this.followersOrFollowingParams.total / 30),
+      };
+    }
   },
   mounted() {
     this.isDialogVisible = true;
@@ -22,7 +34,12 @@ export default {
   methods: {
     ...mapActions('user', ['fetchFollowersOrFollowing']),
     fetchData() {
-      this.fetchFollowersOrFollowing(this.followersOrFollowingParams)
+      const params = {
+        page: this.pagination.page,
+        ...this.followersOrFollowingParams,
+      };
+
+      this.fetchFollowersOrFollowing(params)
         .then(({ data }) => {
           this.users = data;
         });
@@ -38,11 +55,11 @@ export default {
     persistent
   >
     <v-card>
-      <v-card-title>
-        Title
+      <v-card-title class="text-capitalize">
+        {{ followersOrFollowingParams.type }}
       </v-card-title>
 
-      <v-card-text id="scroll-target" class="overflow-y-auto contributors-dialog__card-text">
+      <v-card-text>
         <v-container grid-list-xs>
           <v-row>
             <v-col v-for="user in users" :key="user.node_id" cols="4" lg="4" md="4" sm="6">
@@ -60,6 +77,15 @@ export default {
                   <strong v-text="user.login" />
                 </v-col>
               </v-row>
+            </v-col>
+
+            <v-col cols="12" class="mb-0 pb-0">
+              <v-pagination
+                v-model="pagination.page"
+                :length="pagination.length"
+                total-visible="13"
+                @input="fetchData"
+              />
             </v-col>
           </v-row>
         </v-container>
@@ -80,11 +106,3 @@ export default {
     </v-card>
   </v-dialog>
 </template>
-
-<style lang="scss">
-  .contributors-dialog {
-    &__card-text {
-      max-height: 600px
-    }
-  }
-</style>

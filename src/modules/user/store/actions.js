@@ -17,8 +17,8 @@ export default {
     return axios.get(url);
   },
   fetchFollowersOrFollowing(_, params) {
-    const { username = '', type = '' } = params;
+    const { username = '', type = '', page = 1 } = params;
 
-    return axios.get(`users/${username}/${type}`);
+    return axios.get(`users/${username}/${type}?per_page=30&page=${page}`);
   },
 };

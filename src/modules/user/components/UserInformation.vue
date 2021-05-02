@@ -9,7 +9,12 @@ export default {
   },
   methods: {
     showFollowersOrFollowing(type) {
-      this.$emit('showFollowersOrFollowing', type);
+      const params = {
+        type,
+        total: type === 'followers' ? this.user.followers : this.user.following,
+      };
+
+      this.$emit('showFollowersOrFollowing', params);
     },
   },
 };

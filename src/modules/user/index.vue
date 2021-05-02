@@ -36,9 +36,9 @@ export default {
     fetchRepos() {
       this.fetchUserRepos(this.username);
     },
-    showFollowersOrFollowing(type) {
+    showFollowersOrFollowing(params) {
       this.isUserFollowersDialogVisible = true;
-      this.followersOrFollowingParams = { username: this.username, type };
+      this.followersOrFollowingParams = { username: this.username, ...params };
     },
   },
 };
