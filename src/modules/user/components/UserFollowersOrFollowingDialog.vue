@@ -62,9 +62,12 @@ export default {
       <v-card-text>
         <v-container grid-list-xs>
           <v-row>
-            <v-col v-for="user in users" :key="user.node_id" cols="4" lg="4" md="4" sm="6">
+            <v-col
+              v-for="user in users" :key="user.node_id"
+              cols="4" lg="4" md="4" sm="6"
+            >
               <v-row no-gutters dense>
-                <v-col cols="2">
+                <v-col cols="4">
                   <v-avatar size="40">
                     <img
                       :src="user.avatar_url"
@@ -73,7 +76,7 @@ export default {
                   </v-avatar>
                 </v-col>
 
-                <v-col class="pl-4 pt-2">
+                <v-col class="pt-2">
                   <strong v-text="user.login" />
                 </v-col>
               </v-row>
