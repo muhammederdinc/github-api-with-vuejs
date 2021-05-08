@@ -5,11 +5,23 @@ export default {
   name: 'AppToolbar',
   data: () => ({
     searchParameter: '',
-    links: [
-      'Dashboard',
-      'Messages',
-      'Profile',
-      'Updates',
+    menus: [
+      {
+        name: 'Dashboard',
+        url: '/',
+      },
+      {
+        name: 'Messages',
+        url: '/message',
+      },
+      {
+        name: 'Profile',
+        url: '/',
+      },
+      {
+        name: 'Updates',
+        url: '/',
+      },
     ],
   }),
   computed: {
@@ -27,6 +39,9 @@ export default {
 
         this.$router.push(routerParams);
       }
+    },
+    redirect(url) {
+      this.$router.push(url);
     },
   },
 };
@@ -46,11 +61,12 @@ export default {
       />
 
       <v-btn
-        v-for="link in links"
-        :key="link"
+        v-for="menu in menus"
+        :key="menu.name"
         text
+        @click="redirect(menu.url)"
       >
-        {{ link }}
+        {{ menu.name }}
       </v-btn>
 
       <v-spacer />
