@@ -91,7 +91,7 @@ export default {
         <v-icon color="primary" x-small left>
           mdi-calendar
         </v-icon>
-        {{ $t('main.updated_on') }} {{ userRepository.pushed_at }}
+        {{ $t('main.updated_on') }}: {{ userRepository.pushed_at }}
       </v-chip>
 
       <v-spacer />
