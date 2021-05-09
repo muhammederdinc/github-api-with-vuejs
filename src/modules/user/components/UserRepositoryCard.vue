@@ -36,7 +36,7 @@ export default {
         </v-col>
 
         <v-col cols="3" class="text-right caption pa-0 ma-0">
-          Created: {{ getFormattedDate(userRepository.created_at) }}
+          {{ $t('main.created') }}: {{ getFormattedDate(userRepository.created_at) }}
 
           <br>
 
@@ -91,13 +91,13 @@ export default {
         <v-icon color="primary" x-small left>
           mdi-calendar
         </v-icon>
-        Updated on: {{ userRepository.pushed_at }}
+        {{ $t('main.updated_on') }} {{ userRepository.pushed_at }}
       </v-chip>
 
       <v-spacer />
 
       <a
-        v-text="`contributors`"
+        v-text="$t('main.contributors')"
         class="text-decoration-none"
         @click="showContributors(userRepository.contributors_url)"
       />
