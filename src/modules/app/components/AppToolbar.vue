@@ -55,7 +55,7 @@ export default {
     },
     handleLanguageChange(selectedLanguageCode) {
       localStorage.setItem('language', selectedLanguageCode);
-      window.location.reload();
+      this.$i18n.locale = selectedLanguageCode;
     },
   },
 };
