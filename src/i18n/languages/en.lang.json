@@ -1,6 +1,12 @@
 {
   "main": {
-    "welcome": "Welcome",
-    "guide": "Guide"
+    "repositories": "Repositories",
+    "issues": "Issues",
+    "users": "Users",
+    "followers": "Followers",
+    "following": "Following",
+    "created": "Created",
+    "contributors": "Contributors",
+    "contributions": "Contributions"
   }
 }
