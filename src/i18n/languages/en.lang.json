@@ -9,6 +9,10 @@
     "contributors": "Contributors",
     "contributions": "Contributions",
     "updated_on": "Updated on",
-    "close": "Close"
+    "close": "Close",
+    "list_item": "List item"
+  },
+  "navbar": {
+    "home": "Home"
   }
 }

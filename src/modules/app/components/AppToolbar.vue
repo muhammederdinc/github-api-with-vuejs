@@ -7,19 +7,7 @@ export default {
     searchParameter: '',
     menus: [
       {
-        name: 'Dashboard',
-        url: '/',
-      },
-      {
-        name: 'Messages',
-        url: '/message',
-      },
-      {
-        name: 'Profile',
-        url: '/',
-      },
-      {
-        name: 'Updates',
+        name: 'navbar.home',
         url: '/',
       },
     ],
@@ -76,7 +64,7 @@ export default {
             text
             @click="redirect(menu.url)"
           >
-            {{ menu.name }}
+            {{ $t(menu.name) }}
           </v-btn>
         </v-col>
 

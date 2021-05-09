@@ -9,6 +9,10 @@
     "contributors": "Katkıda bulunanlar",
     "contributions": "Katkılar",
     "updated_on": "Son Güncelleme",
-    "close": "Kapat"
+    "close": "Kapat",
+    "list_item": "Liste öğesi"
+  },
+  "navbar": {
+    "home": "Anasayfa"
   }
 }
