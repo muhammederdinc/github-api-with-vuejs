@@ -13,6 +13,7 @@ export default {
     return {
       isDialogVisible: false,
       contributors: [],
+      isLoading: false,
     };
   },
   mounted() {
@@ -23,9 +24,14 @@ export default {
   methods: {
     ...mapActions('user', ['fetchContributors']),
     fetchData() {
+      this.isLoading = true;
+
       this.fetchContributors(this.contributorsUrl)
         .then(({ data }) => {
           this.contributors = data;
+        })
+        .finally(() => {
+          this.isLoading = false;
         });
     },
   },
@@ -44,8 +50,30 @@ export default {
       </v-card-title>
 
       <v-card-text id="scroll-target" class="overflow-y-auto contributors-dialog__card-text">
-        <v-container>
+        <v-progress-linear
+          v-if="isLoading"
+          indeterminate
+          color="primary"
+        />
+
+        <v-container v-else>
+          <v-row v-if="!contributors.length">
+            <v-col cols="12" class="d-flex justify-center">
+              <v-img
+                lazy-src="@/assets/images/noResult.svg"
+                max-height="100"
+                max-width="100"
+                src="@/assets/images/noResult.svg"
+              />
+            </v-col>
+
+            <v-col cols="12" class="d-flex justify-center">
+              The project has not been contributed yet.
+            </v-col>
+          </v-row>
+
           <v-row
+            v-else
             v-for="(contributor, index) in contributors" :key="contributor.node_id"
             align="center" no-gutters
           >
