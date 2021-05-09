@@ -46,7 +46,7 @@ export default {
   >
     <v-card>
       <v-card-title>
-        Contributors
+        {{ $t('main.contributors') }}
       </v-card-title>
 
       <v-card-text id="scroll-target" class="overflow-y-auto contributors-dialog__card-text">
@@ -90,7 +90,7 @@ export default {
               <strong v-text="contributor.login" />
 
               <span
-                v-text="`(contributions: ${contributor.contributions})`"
+                v-text="`(${$t('main.contributions')}: ${contributor.contributions})`"
                 class="pl-1 caption"
               />
             </v-col>
@@ -106,7 +106,7 @@ export default {
         <v-spacer />
 
         <v-btn
-          v-text="'Close'"
+          v-text="$t('main.close')"
           color="error"
           text small
           @click="$emit('close')"

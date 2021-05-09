@@ -45,7 +45,7 @@ export default {
           x-small outlined color="primary"
           @click="showFollowersOrFollowing('followers')"
         >
-          Follewers: <span v-text="user.followers" />
+          {{ $t('main.followers') }}: <span v-text="user.followers" />
         </v-chip>
 
         <v-icon class="mb-1" small>
@@ -57,7 +57,7 @@ export default {
           x-small outlined color="primary"
           @click="showFollowersOrFollowing('following')"
         >
-          Following: <span v-text="user.following" />
+          {{ $t('main.following') }}: <span v-text="user.following" />
         </v-chip>
       </v-col>
 
@@ -67,7 +67,7 @@ export default {
         </v-icon>
 
         <v-chip x-small outlined color="primary">
-          Created: {{ new Date(user.created_at).getFullYear() }}
+          {{ $t('main.created') }}: {{ new Date(user.created_at).getFullYear() }}
         </v-chip>
       </v-col>
 

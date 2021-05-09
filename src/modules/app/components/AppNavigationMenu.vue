@@ -14,20 +14,7 @@ export default {
       >
         <v-list-item-content>
           <v-list-item-title>
-            List Item {{ n }}
-          </v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-
-      <v-divider class="my-2" />
-
-      <v-list-item
-        link
-        color="grey lighten-4"
-      >
-        <v-list-item-content>
-          <v-list-item-title>
-            Refresh
+            {{ $t('main.list_item') }} {{ n }}
           </v-list-item-title>
         </v-list-item-content>
       </v-list-item>

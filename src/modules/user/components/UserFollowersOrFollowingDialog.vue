@@ -100,7 +100,7 @@ export default {
         <v-spacer />
 
         <v-btn
-          v-text="'Close'"
+          v-text="$t('main.close')"
           color="error"
           text small
           @click="$emit('close')"

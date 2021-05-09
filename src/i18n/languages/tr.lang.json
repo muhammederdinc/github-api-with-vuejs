@@ -1,0 +1,18 @@
+{
+  "main": {
+    "repositories": "Depolar",
+    "issues": "Konular",
+    "users": "Kullanıcılar",
+    "followers": "Takipçiler",
+    "following": "Takip Ettikleri",
+    "created": "Oluşturuldu",
+    "contributors": "Katkıda bulunanlar",
+    "contributions": "Katkılar",
+    "updated_on": "Son Güncelleme",
+    "close": "Kapat",
+    "list_item": "Liste öğesi"
+  },
+  "navbar": {
+    "home": "Anasayfa"
+  }
+}

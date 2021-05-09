@@ -1,0 +1,18 @@
+{
+  "main": {
+    "repositories": "Repositories",
+    "issues": "Issues",
+    "users": "Users",
+    "followers": "Followers",
+    "following": "Following",
+    "created": "Created",
+    "contributors": "Contributors",
+    "contributions": "Contributions",
+    "updated_on": "Updated on",
+    "close": "Close",
+    "list_item": "List item"
+  },
+  "navbar": {
+    "home": "Home"
+  }
+}
