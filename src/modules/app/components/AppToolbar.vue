@@ -23,6 +23,16 @@ export default {
         url: '/',
       },
     ],
+    languages: [
+      {
+        id: 'en',
+        text: 'English',
+      },
+      {
+        id: 'tr',
+        text: 'Türkçe',
+      },
+    ],
   }),
   computed: {
     ...mapState('search', ['searchType']),
@@ -43,6 +53,10 @@ export default {
     redirect(url) {
       this.$router.push(url);
     },
+    handleLanguageChange(selectedLanguageCode) {
+      localStorage.setItem('language', selectedLanguageCode);
+      window.location.reload();
+    },
   },
 };
 </script>
@@ -53,35 +67,59 @@ export default {
     color="white"
     flat
   >
-    <v-container class="py-0 fill-height">
-      <v-avatar
-        class="mr-10"
-        color="grey darken-1"
-        size="32"
-      />
+    <v-container fluid class="py-0 ma-0">
+      <v-row>
+        <v-col cols="6">
+          <v-btn
+            v-for="menu in menus"
+            :key="menu.name"
+            text
+            @click="redirect(menu.url)"
+          >
+            {{ menu.name }}
+          </v-btn>
+        </v-col>
 
-      <v-btn
-        v-for="menu in menus"
-        :key="menu.name"
-        text
-        @click="redirect(menu.url)"
-      >
-        {{ menu.name }}
-      </v-btn>
+        <v-spacer />
 
-      <v-spacer />
+        <v-col cols="2">
+          <v-text-field
+            v-model="searchParameter"
+            dense
+            flat
+            hide-details
+            rounded
+            solo-inverted
+            @keyup.enter="redirectToSearch"
+          />
+        </v-col>
 
-      <v-responsive max-width="260">
-        <v-text-field
-          v-model="searchParameter"
-          dense
-          flat
-          hide-details
-          rounded
-          solo-inverted
-          @keyup.enter="redirectToSearch"
-        />
-      </v-responsive>
+        <v-col cols="auto" class="mt-1">
+          <v-menu offset-y>
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn
+                color="primary"
+                icon small
+                v-bind="attrs"
+                v-on="on"
+              >
+                <v-icon>mdi-translate</v-icon>
+              </v-btn>
+            </template>
+
+            <v-list>
+              <v-list-item
+                v-for="(item, index) in languages"
+                :key="index"
+                link
+                @click="handleLanguageChange(item.id)"
+              >
+                <v-list-item-title>{{ item.text }}</v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-menu>
+        </v-col>
+      </v-row>
     </v-container>
   </v-app-bar>
 </template>
