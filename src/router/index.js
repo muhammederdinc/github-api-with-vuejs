@@ -2,10 +2,16 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Search from '../modules/search';
 import User from '../modules/user';
+import Home from '../modules/home';
 
 Vue.use(VueRouter);
 
 const routes = [
+  {
+    path: '/',
+    name: 'Home',
+    component: Home,
+  },
   {
     path: '/search',
     name: 'Search',

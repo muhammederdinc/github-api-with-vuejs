@@ -10,7 +10,8 @@
     "contributions": "Katkılar",
     "updated_on": "Son Güncelleme",
     "close": "Kapat",
-    "list_item": "Liste öğesi"
+    "list_item": "Liste öğesi",
+    "welcome": "*Github API projesine hoşgeldiniz. Bu proje ile birlikte kullanıcıları, depoları ve konuları aratıp detaylarını inceleyebilirsiniz. (Örn: Herhangi bir kullanıcının depolarını, takipçilerini, faaliyetlerini vb.) Şimdi sağ üstten arama işlemini yapıp projeyi inceleyebilirsiniz."
   },
   "navbar": {
     "home": "Anasayfa"

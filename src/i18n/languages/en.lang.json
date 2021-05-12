@@ -10,7 +10,8 @@
     "contributions": "Contributions",
     "updated_on": "Updated on",
     "close": "Close",
-    "list_item": "List item"
+    "list_item": "List item",
+    "welcome": "Welcome to the Github API project. With this project, you can search for users, repositories and issues and examine their details. (Ex: Any user's repositories, followers, activities etc.) You can now search from the top right and review the project."
   },
   "navbar": {
     "home": "Home"
