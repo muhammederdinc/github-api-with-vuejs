@@ -38,7 +38,7 @@ export default {
           @click="changeSearchType(item.type)"
         >
           <v-list-item-content>
-            <v-list-item-title v-text="item.text" />
+            <v-list-item-title v-text="$t(item.text)" />
           </v-list-item-content>
 
           <v-list-item-action>
