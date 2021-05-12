@@ -1,9 +1,11 @@
 import i18n from '@/i18n';
 
 export default () => ({
-  searchType: 'repositories',
-  searchResult: {},
-  searchParameter: '',
+  searchResult: {
+    repositories: {},
+    issues: {},
+    users: {},
+  },
   searchTypes: [
     { type: 'repositories', text: i18n.t('main.repositories'), totalCount: null },
     { type: 'issues', text: i18n.t('main.issues'), totalCount: null },
