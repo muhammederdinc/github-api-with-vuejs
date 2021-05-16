@@ -15,10 +15,14 @@ export default {
     ],
     select: null,
     items: [
-      'Item 1',
-      'Item 2',
-      'Item 3',
-      'Item 4',
+      { id: 'TR', name: 'Turkey' },
+      { id: 'US', name: 'United States of America' },
+      { id: 'GB', name: 'United Kingdom' },
+      { id: 'DE', name: 'Germany' },
+      { id: 'SE', name: 'Sweden' },
+      { id: 'KE', name: 'Kenya' },
+      { id: 'BR', name: 'Brazil' },
+      { id: 'ZW', name: 'Zimbabwe' },
     ],
     checkbox: false,
   }),
@@ -47,7 +51,7 @@ export default {
         v-model="name"
         :counter="10"
         :rules="nameRules"
-        label="Name"
+        :label="$t('main.name')"
         required
       />
 
@@ -58,44 +62,42 @@ export default {
         required
       />
 
-      <v-select
+      <v-autocomplete
         v-model="select"
         :items="items"
-        :rules="[v => !!v || 'Item is required']"
-        label="Item"
+        :rules="[v => !!v || $t('warning.required')]"
+        :label="$t('main.country')"
         required
+        item-text="name"
       />
 
       <v-checkbox
         v-model="checkbox"
-        :rules="[v => !!v || 'You must agree to continue!']"
-        label="Do you agree?"
+        :rules="[v => !!v || $t('warning.required')]"
+        :label="$t('warning.do_you_agree')"
         required
       />
 
       <v-btn
+        v-text="$t('main.send')"
         :disabled="!valid"
         color="success"
         class="mr-4"
         @click="validate"
-      >
-        Validate
-      </v-btn>
+      />
 
       <v-btn
+        v-text="$t('main.reset_form')"
         color="error"
         class="mr-4"
         @click="reset"
-      >
-        Reset Form
-      </v-btn>
+      />
 
       <v-btn
+        v-text="$t('main.reset_warning')"
         color="warning"
         @click="resetValidation"
-      >
-        Reset Validation
-      </v-btn>
+      />
     </v-form>
   </v-container>
 </template>
