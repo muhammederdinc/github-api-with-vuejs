@@ -1,5 +1,4 @@
 <script>
-
 export default {
   name: 'AppToolbar',
   data: () => ({
@@ -8,6 +7,10 @@ export default {
       {
         name: 'navbar.home',
         url: '/',
+      },
+      {
+        name: 'navbar.contact',
+        url: '/contact',
       },
     ],
     languages: [
