@@ -11,9 +11,19 @@
     "updated_on": "Updated on",
     "close": "Close",
     "list_item": "List item",
-    "welcome": "Welcome to the Github API project. With this project, you can search for users, repositories and issues and examine their details. (Ex: Any user's repositories, followers, activities etc.) You can now search from the top right and review the project."
+    "welcome": "Welcome to the Github API project. With this project, you can search for users, repositories and issues and examine their details. (Ex: Any user's repositories, followers, activities etc.) You can now search from the top right and review the project.",
+    "name": "Name",
+    "country": "Country",
+    "send": "Send",
+    "reset_form": "Reset Form",
+    "reset_warning": "Reset Warning"
   },
   "navbar": {
-    "home": "Home"
+    "home": "Home",
+    "contact": "Contact"
+  },
+  "warning": {
+    "do_you_agree": "Do you agree?",
+    "required": "Required"
   }
 }

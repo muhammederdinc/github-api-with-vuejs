@@ -11,9 +11,19 @@
     "updated_on": "Son Güncelleme",
     "close": "Kapat",
     "list_item": "Liste öğesi",
-    "welcome": "*Github API projesine hoşgeldiniz. Bu proje ile birlikte kullanıcıları, depoları ve konuları aratıp detaylarını inceleyebilirsiniz. (Örn: Herhangi bir kullanıcının depolarını, takipçilerini, faaliyetlerini vb.) Şimdi sağ üstten arama işlemini yapıp projeyi inceleyebilirsiniz."
+    "welcome": "*Github API projesine hoşgeldiniz. Bu proje ile birlikte kullanıcıları, depoları ve konuları aratıp detaylarını inceleyebilirsiniz. (Örn: Herhangi bir kullanıcının depolarını, takipçilerini, faaliyetlerini vb.) Şimdi sağ üstten arama işlemini yapıp projeyi inceleyebilirsiniz.",
+    "name": "İsim",
+    "country": "Ülke",
+    "send": "Gönder",
+    "reset_form": "Formu Temizle",
+    "reset_warning": "Uyarı Mesajlarını Temizle"
   },
   "navbar": {
-    "home": "Anasayfa"
+    "home": "Anasayfa",
+    "contact": "İletişim"
+  },
+  "warning": {
+    "do_you_agree": "Onaylıyor musunuz?",
+    "required": "Zorunlu Alan"
   }
 }
