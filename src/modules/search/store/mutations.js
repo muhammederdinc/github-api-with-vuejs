@@ -1,15 +1,9 @@
 export default {
-  setSearchResult(state, searchResult) {
-    state.searchResult = searchResult;
+  setSearchResult(state, { type, searchResult }) {
+    if (type === 'users') state.searchResult.users = searchResult;
+    else if (type === 'repositories') state.searchResult.repositories = searchResult;
+    else if (type === 'issues') state.searchResult.issues = searchResult;
 
-    state.searchTypes.find(
-      (item) => item.type === state.searchType,
-    ).totalCount = searchResult.total_count;
-  },
-  changeGithubSearchType(state, newSearchType) {
-    state.searchType = newSearchType;
-  },
-  setSearchParams(state, newParameter) {
-    state.searchParameter = newParameter;
+    state.searchTypes.find((item) => item.type === type).totalCount = searchResult.total_count;
   },
 };

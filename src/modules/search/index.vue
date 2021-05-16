@@ -30,15 +30,17 @@ export default {
     this.fetchData();
   },
   methods: {
-    ...mapActions('search', ['searchOnGithub']),
+    ...mapActions('search', ['searchUsers', 'searchRepositories', 'searchIssues']),
     fetchData(newSearchType = null) {
       const { q = '', type = '' } = this.$route.query;
-      const searchParams = { type: newSearchType || type, searchParameter: q };
       const routerParams = { path: 'search', query: { q, type: newSearchType || type } };
 
       if (newSearchType) this.$router.push(routerParams);
-
-      this.searchOnGithub(searchParams);
+      else {
+        this.searchUsers(q);
+        this.searchRepositories(q);
+        this.searchIssues(q);
+      }
     },
   },
 };
@@ -57,17 +59,17 @@ export default {
       <v-col cols="10">
         <repositories-search-results
           v-if="$route.query.type === 'repositories'"
-          :search-results="searchResult.items || []"
+          :search-results="searchResult.repositories.items || []"
         />
 
         <user-search-results
           v-else-if="$route.query.type === 'users'"
-          :search-results="searchResult.items || []"
+          :search-results="searchResult.users.items || []"
         />
 
         <issue-search-results
           v-else-if="$route.query.type === 'issues'"
-          :search-results="searchResult.items || []"
+          :search-results="searchResult.issues.items || []"
         />
       </v-col>
     </v-row>

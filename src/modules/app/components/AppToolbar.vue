@@ -1,5 +1,4 @@
 <script>
-import { mapState } from 'vuex';
 
 export default {
   name: 'AppToolbar',
@@ -22,17 +21,14 @@ export default {
       },
     ],
   }),
-  computed: {
-    ...mapState('search', ['searchType']),
-  },
   methods: {
     redirectToSearch() {
       const { q = '', type = '' } = this.$route.query;
 
-      if (q !== this.searchParameter || type !== this.searchType) {
+      if (q !== this.searchParameter) {
         const routerParams = {
           path: 'search',
-          query: { q: this.searchParameter, type: this.searchType },
+          query: { q: this.searchParameter, type: type || 'repositories' },
         };
 
         this.$router.push(routerParams);

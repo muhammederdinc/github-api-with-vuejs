@@ -1,5 +1,4 @@
 <script>
-import { mapActions } from 'vuex';
 
 export default {
   name: 'SearchTypesCard',
@@ -17,14 +16,10 @@ export default {
       if (this.$route.query.type === 'repositories') this.selectedItem = 0;
       else if (this.$route.query.type === 'issues') this.selectedItem = 1;
       else if (this.$route.query.type === 'users') this.selectedItem = 2;
-
-      this.changeGithubSearchType(this.$route.query.type);
     }
   },
   methods: {
-    ...mapActions('search', ['changeGithubSearchType']),
     changeSearchType(newSearchType) {
-      this.changeGithubSearchType(newSearchType);
       this.$emit('search', newSearchType);
     },
   },
@@ -43,17 +38,16 @@ export default {
           @click="changeSearchType(item.type)"
         >
           <v-list-item-content>
-            <v-list-item-title v-text="item.text" />
+            <v-list-item-title v-text="$t(item.text)" />
           </v-list-item-content>
 
           <v-list-item-action>
             <v-list-item-action-text>
               <v-chip
-                v-if="item.totalCount"
                 class="white--text grey darken-1"
                 x-small
               >
-                {{ item.totalCount }}
+                {{ item.totalCount || 0 }}
               </v-chip>
             </v-list-item-action-text>
           </v-list-item-action>
