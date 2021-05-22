@@ -1,4 +1,6 @@
 <script>
+import { mapState } from 'vuex';
+
 export default {
   name: 'AppToolbar',
   data: () => ({
@@ -24,6 +26,9 @@ export default {
       },
     ],
   }),
+  computed: {
+    ...mapState('app', ['user']),
+  },
   methods: {
     redirectToSearch() {
       const { q = '', type = '' } = this.$route.query;

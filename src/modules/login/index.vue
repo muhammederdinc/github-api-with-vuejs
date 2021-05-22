@@ -1,4 +1,6 @@
 <script>
+import { mapActions } from 'vuex';
+
 export default {
   name: 'Login',
   data() {
@@ -7,10 +9,23 @@ export default {
     };
   },
   methods: {
+    ...mapActions('app', ['setUser']),
     submit() { /* eslint-disable */
       const { username, password } = this.formData;
 
       if (username === 'muhammed' && password === 'erdinc') {
+        const userParams = {
+          id: 0,
+          name: 'Muhammed',
+          surname: 'Erdinç',
+          username: 'muhammederdinc',
+          country: 'Turkey',
+          city: 'Istanbul',
+          email: 'test@gmail.com'
+        };
+
+        this.setUser(userParams);
+        this.$router.push('/');
         console.log('Login Başarılı');
       } else {
         console.log('Login BAŞARISIZ');
