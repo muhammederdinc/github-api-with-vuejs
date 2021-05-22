@@ -18,6 +18,7 @@ export default {
           id: 0,
           name: 'Muhammed',
           surname: 'Erdinç',
+          initials: 'ME',
           username: 'muhammederdinc',
           country: 'Turkey',
           city: 'Istanbul',
