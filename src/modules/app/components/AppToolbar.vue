@@ -116,8 +116,8 @@ export default {
           </v-menu>
         </v-col>
 
-        <v-col cols="auto">
-          <user-avatar :user="user" />
+        <v-col v-if="user" cols="auto">
+          <user-avatar />
         </v-col>
       </v-row>
     </v-container>
