@@ -16,7 +16,11 @@
     "country": "Country",
     "send": "Send",
     "reset_form": "Reset Form",
-    "reset_warning": "Reset Warning"
+    "reset_warning": "Reset Warning",
+    "login": "Login",
+    "logOut": "Log Out",
+    "username": "Username",
+    "password": "Password"
   },
   "navbar": {
     "home": "Home",

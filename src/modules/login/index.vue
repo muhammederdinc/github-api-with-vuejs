@@ -44,23 +44,21 @@ export default {
           <v-flex xs12 sm8 md4>
             <v-card class="elevation-12">
               <v-toolbar dark color="primary">
-                <v-toolbar-title>Login</v-toolbar-title>
+                <v-toolbar-title>{{ $t('main.login') }}</v-toolbar-title>
               </v-toolbar>
 
               <v-card-text>
                 <v-form>
                   <v-text-field
                     v-model="formData.username"
-                    name="login"
-                    label="Login"
+                    :label="$t('main.username')"
                     type="text"
                   />
 
                   <v-text-field
                     v-model="formData.password"
                     id="password"
-                    name="password"
-                    label="Password"
+                    :label="$t('main.password')"
                     type="password"
                   />
                 </v-form>
@@ -68,7 +66,7 @@ export default {
 
               <v-card-actions>
                 <v-spacer />
-                <v-btn color="primary" @click="submit">Login</v-btn>
+                <v-btn color="primary" small @click="submit">{{ $t('main.login') }}</v-btn>
               </v-card-actions>
             </v-card>
           </v-flex>
