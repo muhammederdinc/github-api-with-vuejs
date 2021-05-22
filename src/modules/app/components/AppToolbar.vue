@@ -116,8 +116,18 @@ export default {
           </v-menu>
         </v-col>
 
-        <v-col v-if="user" cols="auto">
-          <user-avatar />
+        <v-col cols="auto">
+          <user-avatar v-if="user" />
+
+          <v-btn
+            v-else
+            small text
+            class="mt-3"
+            color="primary"
+            @click="$router.push('/login')"
+          >
+            {{ $t('main.login') }}
+          </v-btn>
         </v-col>
       </v-row>
     </v-container>
