@@ -9,11 +9,12 @@ export default {
         username: 'muhammed',
         password: 'erdinc',
       },
+      isWarningMessageVisible: false,
     };
   },
   methods: {
     ...mapActions('app', ['setUser']),
-    submit() { /* eslint-disable */
+    submit() {
       const { username, password } = this.formData;
 
       if (username === 'muhammed' && password === 'erdinc') {
@@ -25,14 +26,13 @@ export default {
           username: 'muhammederdinc',
           country: 'Turkey',
           city: 'Istanbul',
-          email: 'test@gmail.com'
+          email: 'test@gmail.com',
         };
 
         this.setUser(userParams);
         this.$router.push('/');
-        console.log('Login Başarılı');
       } else {
-        console.log('Login BAŞARISIZ');
+        this.isWarningMessageVisible = true;
       }
     },
   },
@@ -78,8 +78,21 @@ export default {
               </v-card-text>
 
               <v-card-actions>
+                <v-alert
+                  v-if="isWarningMessageVisible"
+                  dense
+                  outlined
+                  text
+                  type="error"
+                >
+                  {{ $t('main.login_error') }}
+                </v-alert>
+
                 <v-spacer />
-                <v-btn color="primary" small @click="submit">{{ $t('main.login') }}</v-btn>
+
+                <v-btn color="primary" @click="submit">
+                  {{ $t('main.login') }}
+                </v-btn>
               </v-card-actions>
             </v-card>
           </v-flex>

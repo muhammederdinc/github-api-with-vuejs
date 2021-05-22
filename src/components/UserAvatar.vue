@@ -60,7 +60,7 @@ export default {
             text
             @click="logOut"
           >
-            Çıkış Yap
+            {{ $t('main.log_out') }}
           </v-btn>
         </div>
       </v-list-item-content>

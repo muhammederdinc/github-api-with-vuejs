@@ -18,9 +18,10 @@
     "reset_form": "Formu Temizle",
     "reset_warning": "Uyarı Mesajlarını Temizle",
     "login": "Oturum Açın",
-    "logOut": "Çıkış Yap",
+    "log_out": "Çıkış Yap",
     "username": "Kullanıcı Adı",
-    "password": "Şifre"
+    "password": "Şifre",
+    "login_error": "Kullanıcı adı veya şifre hatalı"
   },
   "navbar": {
     "home": "Anasayfa",
