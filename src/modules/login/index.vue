@@ -5,7 +5,10 @@ export default {
   name: 'Login',
   data() {
     return {
-      formData: {},
+      formData: {
+        username: 'muhammed',
+        password: 'erdinc',
+      },
     };
   },
   methods: {
@@ -38,12 +41,22 @@ export default {
 
 <template>
   <v-app id="inspire">
-    <v-content>
+    <v-main>
       <v-container fluid fill-height>
         <v-layout align-center justify-center>
           <v-flex xs12 sm8 md4>
             <v-card class="elevation-12">
               <v-toolbar dark color="primary">
+                <v-btn
+                  class="mr-2"
+                  outlined
+                  x-small
+                  fab
+                  color="white"
+                  @click="$router.push('/')"
+                >
+                  <v-icon>mdi-arrow-left</v-icon>
+                </v-btn>
                 <v-toolbar-title>{{ $t('main.login') }}</v-toolbar-title>
               </v-toolbar>
 
@@ -72,6 +85,6 @@ export default {
           </v-flex>
         </v-layout>
       </v-container>
-    </v-content>
+    </v-main>
   </v-app>
 </template>
