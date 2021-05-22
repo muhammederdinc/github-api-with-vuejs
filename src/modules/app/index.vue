@@ -15,30 +15,41 @@ export default {
       'Updates',
     ],
   }),
+  computed: {
+    isNoLayoutPage() {
+      return this.$route.meta.noLayout;
+    },
+  },
 };
 </script>
 
 <template>
   <v-app id="inspire">
-    <app-toolbar />
+    <template v-if="isNoLayoutPage">
+      <router-view />
+    </template>
 
-    <v-main class="grey lighten-3">
-      <v-container fluid>
-        <v-row>
-          <v-col cols="2">
-            <app-navigation-menu />
-          </v-col>
+    <template v-else>
+      <app-toolbar />
 
-          <v-col cols="10">
-            <v-sheet
-              min-height="70vh"
-              rounded="lg"
-            >
-              <router-view />
-            </v-sheet>
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-main>
+      <v-main class="grey lighten-3">
+        <v-container fluid>
+          <v-row>
+            <v-col cols="2">
+              <app-navigation-menu />
+            </v-col>
+
+            <v-col cols="10">
+              <v-sheet
+                min-height="70vh"
+                rounded="lg"
+              >
+                <router-view />
+              </v-sheet>
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-main>
+    </template>
   </v-app>
 </template>

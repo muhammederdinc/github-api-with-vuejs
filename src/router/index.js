@@ -4,6 +4,7 @@ import Search from '../modules/search';
 import User from '../modules/user';
 import Home from '../modules/home';
 import Contact from '../modules/contact';
+import Login from '../modules/login';
 
 Vue.use(VueRouter);
 
@@ -27,6 +28,12 @@ const routes = [
     path: '/contact',
     name: 'Contact',
     component: Contact,
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login,
+    meta: { noLayout: true },
   },
 ];
 
