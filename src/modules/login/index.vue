@@ -53,7 +53,7 @@ export default {
                   x-small
                   fab
                   color="white"
-                  @click="$router.push('/')"
+                  @click="$router.go(-1)"
                 >
                   <v-icon>mdi-arrow-left</v-icon>
                 </v-btn>
