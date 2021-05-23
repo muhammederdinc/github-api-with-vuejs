@@ -14,6 +14,11 @@ export default {
       'Profile',
       'Updates',
     ],
+    icons: [
+      'mdi-twitter',
+      'mdi-linkedin',
+      'mdi-instagram',
+    ],
   }),
   computed: {
     isNoLayoutPage() {
@@ -50,6 +55,31 @@ export default {
           </v-row>
         </v-container>
       </v-main>
+
+      <v-footer
+        padless
+        dense
+      >
+        <v-card
+          class="flex"
+          flat
+          tile
+          dense
+        >
+          <v-card-text class="py-2 text-center">
+            <v-btn
+              v-for="icon in icons"
+              :key="icon"
+              class="mx-4"
+              icon
+            >
+              <v-icon size="24px">
+                {{ icon }}
+              </v-icon>
+            </v-btn>
+          </v-card-text>
+        </v-card>
+      </v-footer>
     </template>
   </v-app>
 </template>
