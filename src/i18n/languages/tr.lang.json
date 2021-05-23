@@ -16,7 +16,12 @@
     "country": "Ülke",
     "send": "Gönder",
     "reset_form": "Formu Temizle",
-    "reset_warning": "Uyarı Mesajlarını Temizle"
+    "reset_warning": "Uyarı Mesajlarını Temizle",
+    "login": "Oturum Açın",
+    "log_out": "Çıkış Yap",
+    "username": "Kullanıcı Adı",
+    "password": "Şifre",
+    "login_error": "Kullanıcı adı veya şifre hatalı"
   },
   "navbar": {
     "home": "Anasayfa",

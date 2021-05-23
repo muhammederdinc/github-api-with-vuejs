@@ -1,19 +1,22 @@
 <script>
+import { mapState } from 'vuex';
+
 export default {
   name: 'Contact',
   data: () => ({
     valid: true,
-    name: '',
+    formData: {
+      name: '',
+      email: '',
+    },
     nameRules: [
       (v) => !!v || 'Name is required',
       (v) => (v && v.length <= 10) || 'Name must be less than 10 characters',
     ],
-    email: '',
     emailRules: [
       (v) => !!v || 'E-mail is required',
       (v) => /.+@.+\..+/.test(v) || 'E-mail must be valid',
     ],
-    select: null,
     items: [
       { id: 'TR', name: 'Turkey' },
       { id: 'US', name: 'United States of America' },
@@ -26,9 +29,24 @@ export default {
     ],
     checkbox: false,
   }),
+  computed: {
+    ...mapState('app', ['user']),
+  },
+  mounted() {
+    if (this.user) {
+      this.formData.name = this.user.name;
+      this.formData.email = this.user.email;
+      this.formData.country = this.user.country;
+    }
+  },
   methods: {
+    submit() { /* eslint-disable */
+      if (this.validate()) {
+        console.log(this.formData);
+      }
+    },
     validate() {
-      this.$refs.form.validate();
+      return this.$refs.form.validate();
     },
     reset() {
       this.$refs.form.reset();
@@ -48,22 +66,21 @@ export default {
       lazy-validation
     >
       <v-text-field
-        v-model="name"
-        :counter="10"
+        v-model="formData.name"
         :rules="nameRules"
         :label="$t('main.name')"
         required
       />
 
       <v-text-field
-        v-model="email"
+        v-model="formData.email"
         :rules="emailRules"
         label="E-mail"
         required
       />
 
       <v-autocomplete
-        v-model="select"
+        v-model="formData.country"
         :items="items"
         :rules="[v => !!v || $t('warning.required')]"
         :label="$t('main.country')"
@@ -83,7 +100,7 @@ export default {
         :disabled="!valid"
         color="success"
         class="mr-4"
-        @click="validate"
+        @click="submit"
       />
 
       <v-btn

@@ -1,6 +1,12 @@
 <script>
+import { mapState } from 'vuex';
+import UserAvatar from '../../../components/UserAvatar';
+
 export default {
   name: 'AppToolbar',
+  components: {
+    UserAvatar,
+  },
   data: () => ({
     searchParameter: '',
     menus: [
@@ -24,6 +30,9 @@ export default {
       },
     ],
   }),
+  computed: {
+    ...mapState('app', ['user']),
+  },
   methods: {
     redirectToSearch() {
       const { q = '', type = '' } = this.$route.query;
@@ -56,7 +65,7 @@ export default {
   >
     <v-container fluid class="py-0 ma-0">
       <v-row>
-        <v-col cols="6">
+        <v-col cols="6" class="mt-2">
           <v-btn
             v-for="menu in menus"
             :key="menu.name"
@@ -69,7 +78,7 @@ export default {
 
         <v-spacer />
 
-        <v-col cols="2">
+        <v-col cols="2" class="mt-2">
           <v-text-field
             v-model="searchParameter"
             dense
@@ -81,7 +90,7 @@ export default {
           />
         </v-col>
 
-        <v-col cols="auto" class="mt-1">
+        <v-col cols="auto" class="mt-3">
           <v-menu offset-y>
             <template v-slot:activator="{ on, attrs }">
               <v-btn
@@ -105,6 +114,20 @@ export default {
               </v-list-item>
             </v-list>
           </v-menu>
+        </v-col>
+
+        <v-col cols="auto">
+          <user-avatar v-if="user" />
+
+          <v-btn
+            v-else
+            small text
+            class="mt-3"
+            color="primary"
+            @click="$router.push('/login')"
+          >
+            {{ $t('main.login') }}
+          </v-btn>
         </v-col>
       </v-row>
     </v-container>
