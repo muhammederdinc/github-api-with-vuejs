@@ -24,7 +24,7 @@ export default {
           surname: 'Erdinç',
           initials: 'ME',
           username: 'muhammederdinc',
-          country: 'Turkey',
+          country: { id: 'TR', name: 'Turkey' },
           city: 'Istanbul',
           email: 'test@gmail.com',
         };
