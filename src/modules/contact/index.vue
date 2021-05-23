@@ -1,9 +1,14 @@
 <script>
+import { mapState } from 'vuex';
+
 export default {
   name: 'Contact',
   data: () => ({
     valid: true,
-    formData: {},
+    formData: {
+      name: '',
+      email: '',
+    },
     nameRules: [
       (v) => !!v || 'Name is required',
       (v) => (v && v.length <= 10) || 'Name must be less than 10 characters',
@@ -24,6 +29,16 @@ export default {
     ],
     checkbox: false,
   }),
+  computed: {
+    ...mapState('app', ['user']),
+  },
+  mounted() {
+    if (this.user) {
+      this.formData.name = this.user.name;
+      this.formData.email = this.user.email;
+      this.formData.country = this.user.country;
+    }
+  },
   methods: {
     submit() { /* eslint-disable */
       if (this.validate()) {
@@ -52,7 +67,6 @@ export default {
     >
       <v-text-field
         v-model="formData.name"
-        :counter="10"
         :rules="nameRules"
         :label="$t('main.name')"
         required
