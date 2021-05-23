@@ -30,6 +30,7 @@ export default {
         };
 
         this.setUser(userParams);
+        localStorage.setItem('user', JSON.stringify(userParams));
         this.$router.push('/');
       } else {
         this.isWarningMessageVisible = true;

@@ -10,6 +10,7 @@ export default {
     ...mapActions('app', ['setUser']),
     logOut() {
       this.setUser(null);
+      localStorage.removeItem('user');
       this.$router.go();
     },
   },

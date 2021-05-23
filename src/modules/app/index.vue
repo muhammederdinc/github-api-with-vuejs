@@ -1,4 +1,5 @@
 <script>
+import { mapActions } from 'vuex';
 import AppToolbar from './components/AppToolbar';
 import AppNavigationMenu from './components/AppNavigationMenu';
 
@@ -24,6 +25,14 @@ export default {
     isNoLayoutPage() {
       return this.$route.meta.noLayout;
     },
+  },
+  created() {
+    const user = localStorage.getItem('user');
+
+    if (user) this.setUser(JSON.parse(user));
+  },
+  methods: {
+    ...mapActions('app', ['setUser']),
   },
 };
 </script>
