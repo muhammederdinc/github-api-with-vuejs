@@ -29,6 +29,7 @@
   },
   "warning": {
     "do_you_agree": "Onaylıyor musunuz?",
-    "required": "Zorunlu Alan"
+    "required": "Zorunlu Alan",
+    "no_search_results_found": "Arama Sonucu Bulunamadı"
   }
 }

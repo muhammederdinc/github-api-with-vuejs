@@ -1,6 +1,11 @@
 <script>
+import NoResultsFound from '@/components/NoResultsFound';
+
 export default {
   name: 'UserSearchResults',
+  components: {
+    NoResultsFound,
+  },
   props: {
     searchResults: {
       type: Array,
@@ -22,7 +27,11 @@ export default {
 
 <template>
   <div>
-    <v-card outlined class="mx-2">
+    <no-results-found
+      v-if="!searchResults.length"
+    />
+
+    <v-card v-else outlined class="mx-2">
       <v-list two-line>
         <v-list-item-group>
           <template v-for="(item, index) in searchResults">

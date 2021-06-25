@@ -29,6 +29,7 @@
   },
   "warning": {
     "do_you_agree": "Do you agree?",
-    "required": "Required"
+    "required": "Required",
+    "no_search_results_found": "No search results found"
   }
 }
