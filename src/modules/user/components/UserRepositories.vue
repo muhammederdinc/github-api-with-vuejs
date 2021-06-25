@@ -1,5 +1,5 @@
 <script>
-import ContributorsDialog from './ContributorsDialog';
+import ContributorsDialog from '@/components/ContributorsDialog';
 import UserRepositoryCard from './UserRepositoryCard';
 
 export default {
