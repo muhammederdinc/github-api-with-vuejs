@@ -1,8 +1,8 @@
 <script>
 import { mapActions, mapState } from 'vuex';
+import UserFollowersOrFollowingDialog from '@/components/UserFollowersOrFollowingDialog';
 import UserRepositories from './components/UserRepositories';
 import UserInformation from './components/UserInformation';
-import UserFollowersOrFollowingDialog from './components/UserFollowersOrFollowingDialog';
 
 export default {
   name: 'User',
