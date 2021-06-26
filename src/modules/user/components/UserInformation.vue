@@ -41,7 +41,6 @@ export default {
         </v-icon>
 
         <v-chip
-          class="user-text-hover"
           x-small outlined color="primary"
           @click="showFollowersOrFollowing('followers')"
         >
@@ -53,7 +52,6 @@ export default {
         </v-icon>
 
         <v-chip
-          class="user-text-hover"
           x-small outlined color="primary"
           @click="showFollowersOrFollowing('following')"
         >

@@ -66,12 +66,3 @@ export default {
     />
   </v-container>
 </template>
-
-<style lang="scss" scoped>
-  .user-text-hover {
-    &:hover {
-      color: #1E88E5;
-      cursor: pointer;
-    }
-  }
-</style>
