@@ -1,11 +1,15 @@
 <script>
 import { mapActions } from 'vuex';
+import RepositoryBranchesMenu from '../../components/RepositoryBranchesMenu';
 
 export default {
   name: 'RepositoryDetail',
+  components: {
+    RepositoryBranchesMenu,
+  },
   data() {
     return {
-      repositoryDetail: null,
+      repository: null,
     };
   },
   mounted() {
@@ -16,7 +20,7 @@ export default {
     fetchRepositoryDetail() {
       this.fetchData(this.$route.query.endpoint)
         .then(({ data }) => {
-          this.repositoryDetail = data;
+          this.repository = data;
         });
     },
   },
@@ -26,11 +30,12 @@ export default {
 <template>
   <div>
     <v-toolbar dense flat outlined>
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+      <repository-branches-menu
+        :default-branch="repository.default_branch"
+        :endpoint="repository.url"
+      />
 
-      <v-toolbar-title>Title</v-toolbar-title>
-
-      <v-spacer></v-spacer>
+      <v-spacer />
 
       <v-btn icon>
         <v-icon>mdi-magnify</v-icon>
@@ -44,6 +49,6 @@ export default {
         <v-icon>mdi-dots-vertical</v-icon>
       </v-btn>
     </v-toolbar>
-    {{ repositoryDetail }}
+    {{ repository }}
   </div>
 </template>
