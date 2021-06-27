@@ -13,9 +13,6 @@ export default {
         commit('setRepos', data);
       });
   },
-  fetchContributors(_, url) {
-    return axios.get(url);
-  },
   fetchFollowersOrFollowing(_, params) {
     const { username = '', type = '', page = 1 } = params;
 
