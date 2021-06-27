@@ -7,4 +7,7 @@ export default {
   fetchData(_, endpoint) {
     return axios.get(endpoint);
   },
+  fetchRepositoryBranches(_, endpoint) {
+    return axios.get(`${endpoint}/branches`);
+  },
 };
