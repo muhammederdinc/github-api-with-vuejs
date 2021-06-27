@@ -19,14 +19,14 @@ export default {
   mounted() {
     this.isDialogVisible = true;
 
-    this.fetchData();
+    this.fetchContributors();
   },
   methods: {
-    ...mapActions('user', ['fetchContributors']),
-    fetchData() {
+    ...mapActions('app', ['fetchData']),
+    fetchContributors() {
       this.isLoading = true;
 
-      this.fetchContributors(this.contributorsUrl)
+      this.fetchData(this.contributorsUrl)
         .then(({ data }) => {
           this.contributors = data;
         })
