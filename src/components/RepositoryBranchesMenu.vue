@@ -90,7 +90,7 @@ export default {
       >
         <v-list-item
           v-for="(branch) in branches"
-          :key="branch"
+          :key="branch.name"
         >
           <v-list-item-content>
             <v-list-item-title v-text="branch.name" />
