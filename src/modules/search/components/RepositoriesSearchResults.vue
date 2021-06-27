@@ -12,6 +12,16 @@ export default {
       required: true,
     },
   },
+  methods: {
+    redirectToRepositoryDetail(endpoint) {
+      const routerParams = {
+        path: 'repositoryDetail',
+        query: { endpoint },
+      };
+
+      this.$router.push(routerParams);
+    },
+  },
 };
 </script>
 
@@ -34,9 +44,15 @@ export default {
               </v-list-item-avatar>
 
               <v-list-item-content>
-                <v-list-item-title v-text="item.name" />
+                <v-list-item-title
+                  v-text="item.name"
+                  @click="redirectToRepositoryDetail(item.url)"
+                />
 
-                <v-list-item-subtitle v-text="item.description" class="text--primary" />
+                <v-list-item-subtitle
+                  v-text="item.description"
+                  class="text--primary"
+                />
 
                 <v-list-item-subtitle>
                   <template v-if="item.stargazers_count">
