@@ -5,6 +5,7 @@ import User from '../modules/user';
 import Home from '../modules/home';
 import Contact from '../modules/contact';
 import Login from '../modules/login';
+import RepositoryDetail from '../modules/repositoryDetail';
 
 Vue.use(VueRouter);
 
@@ -28,6 +29,11 @@ const routes = [
     path: '/contact',
     name: 'Contact',
     component: Contact,
+  },
+  {
+    path: '/repositoryDetail',
+    name: 'RepositoryDetail',
+    component: RepositoryDetail,
   },
   {
     path: '/login',
